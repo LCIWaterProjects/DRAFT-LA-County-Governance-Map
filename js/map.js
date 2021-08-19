@@ -109,3 +109,17 @@ function getStyle(feature){
 		fill: true,
 		fillColor: getColor(feature.properties['objectid']),
 		fillOpacity: 0.8
+	}
+}
+// return the color for each feature
+function getColor(d) {
+
+	return d > 22 ? '#800026' :
+		   d > 500000000  ? '#BD0026' :
+		   d > 200000000  ? '#E31A1C' :
+		   d > 100000000  ? '#FC4E2A' :
+		   d > 50000000   ? '#FD8D3C' :
+		   d > 20000000   ? '#FEB24C' :
+		   d > 10000000   ? '#FED976' :
+					  '#FFEDA0';
+}
