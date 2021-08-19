@@ -91,8 +91,21 @@ function getGeoJSON(){
 function mapGeoJSON(){
 
 	// create the layer and add to map
-	geojson_layer = L.geoJson(geojson_data).addTo(map);
+	geojson_layer = L.geoJson(geojson_data,{
+			style: getStyle //call a function to style each feature
+		
+		
+	}).addTo(map);
 
 	// fit to bounds
 	map.fitBounds(geojson_layer.getBounds())
 }
+// style each feature
+function getStyle(feature){
+	return {
+		stroke: true,
+		color: 'white',
+		weight: 1,
+		fill: true,
+		fillColor: getColor(feature.properties['objectid']),
+		fillOpacity: 0.8
