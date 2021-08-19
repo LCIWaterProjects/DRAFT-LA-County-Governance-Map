@@ -3,15 +3,20 @@ let map;
 let lat = 0;
 let lon = 0;
 let zl = 3;
-let path = '';
+let path = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/SystemCoordinates.csv';
 let markers = L.featureGroup();
 let csvdata;
+let geojsonPath = 'data/County Boundaries.geojson';
+let geojson_data;
+let geojson_layer;
 
 // initialize
 $( document ).ready(function() {
 	createMap(lat,lon,zl);
 	readCSV(path);
+	getGeoJSON();
 });
+
 
 // create the map
 function createMap(lat,lon,zl){
@@ -42,31 +47,52 @@ function mapCSV(){
 
 	// loop through each entry
 	csvdata.data.forEach(function(item,index){
-		if(isNaN(item.lat)==false)
-		if(isNaN(item.long)==false){
+		if(isNaN(item.Lat)==false)
+		if(isNaN(item.Long)==false){
 			// circle options
 			console.log(item)
 
 			let circleOptions = {
-				radius: 10,
+				radius: 5,
 				weight: 1,
 				color: 'white',
 				fillColor: 'red',
 				fillOpacity: 0.5
 			}
-			let marker = L.circleMarker([parseFloat(item.lat),parseFloat(item.long)],circleOptions)
+			let marker = L.circleMarker([parseFloat(item.Lat),parseFloat(item.Long)],circleOptions)
             .on('mouseover',function(){
-				this.bindPopup(`${item['ws']}`).openPopup()
+				this.bindPopup(`${item['Name']}`).openPopup()
 			})
 
 			markers.addLayer(marker)	
 
-			// add data to sidebar
-			$('.sidebar').append(`<div class="sidebar-item">${item.ws}</div>`)
+		
 
 		}
 	});
 
 	markers.addTo(map)
 	map.fitBounds(markers.getBounds())
+}
+// function to get the geojson data
+function getGeoJSON(){
+
+	$.getJSON(geojsonPath,function(data){
+		console.log(data)
+
+		// put the data in a global variable
+		geojson_data = data;
+
+		// call the map function
+		mapGeoJSON()
+	})
+}
+// function to map a geojson file
+function mapGeoJSON(){
+
+	// create the layer and add to map
+	geojson_layer = L.geoJson(geojson_data).addTo(map);
+
+	// fit to bounds
+	map.fitBounds(geojson_layer.getBounds())
 }
