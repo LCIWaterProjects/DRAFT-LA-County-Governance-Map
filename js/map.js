@@ -6,7 +6,7 @@ let zl = 3;
 let path = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/SystemCoordinates.csv';
 let markers = L.featureGroup();
 let csvdata;
-let geojsonPath = 'data/County Boundaries.geoson';
+let geojsonPath = 'data/County Boundaries.geojson';
 let geojson_data;
 let geojson_layer;
 
