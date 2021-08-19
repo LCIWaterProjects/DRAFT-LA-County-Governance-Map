@@ -6,7 +6,7 @@ let zl = 3;
 let path = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/SystemCoordinates.csv';
 let markers = L.featureGroup();
 let csvdata;
-let geojsonPath = 'data/County Boundaries.geojson';
+let geojsonPath = 'data/County Boundaries.geoson';
 let geojson_data;
 let geojson_layer;
 
@@ -91,35 +91,8 @@ function getGeoJSON(){
 function mapGeoJSON(){
 
 	// create the layer and add to map
-	geojson_layer = L.geoJson(geojson_data,{
-			style: getStyle //call a function to style each feature
-		
-		
-	}).addTo(map);
+	geojson_layer = L.geoJson(geojson_data).addTo(map);
 
 	// fit to bounds
 	map.fitBounds(geojson_layer.getBounds())
-}
-// style each feature
-function getStyle(feature){
-	return {
-		stroke: true,
-		color: 'white',
-		weight: 1,
-		fill: true,
-		fillColor: getColor(feature.properties['objectid']),
-		fillOpacity: 0.8
-	}
-}
-// return the color for each feature
-function getColor(d) {
-
-	return d > 22 ? '#800026' :
-		   d > 500000000  ? '#BD0026' :
-		   d > 200000000  ? '#E31A1C' :
-		   d > 100000000  ? '#FC4E2A' :
-		   d > 50000000   ? '#FD8D3C' :
-		   d > 20000000   ? '#FEB24C' :
-		   d > 10000000   ? '#FED976' :
-					  '#FFEDA0';
 }
