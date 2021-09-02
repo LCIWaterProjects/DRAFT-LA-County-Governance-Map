@@ -1,10 +1,11 @@
 body,html {
-	margin:0;
-	height:100%;
-	width:100%;
+    margin:0;
+    height:100%;
+    width:100%;
 }
 
 #map {
+<<<<<<< HEAD
 	height: 100%;
 	text-align: center;
 }
@@ -49,14 +50,47 @@ body {
 	grid-area: content;
 	resize: horizontal;
 	overflow: auto;
+=======
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 60px 1fr 50px;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+}
+
+.header {
+    grid-area: header;
+    padding:10px;
+    background-color: #333;
+    color: white;
+    font-size: 2em;
+}
+
+.sidebar {
+    color: white;
+    grid-area: sidebar;
+    padding:10px;
+    background-color: #555;
+    overflow: auto;
+}
+
+.content {
+    grid-area: content;
+>>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 }
 
 .footer {
-	grid-area: footer;
-	padding:10px;
-	background-color: rgb(175, 175, 175);
+    grid-area: footer;
+    background-color: gray;
 }
 
+<<<<<<< HEAD
 .sidebar-item {
     padding: 10px; /* adds inner padding */
     background: rgb(182, 199, 245); /* background color of the card */
@@ -76,6 +110,19 @@ body {
     min-width: 250px;
     min-height: 50px;
 }
+=======
+/* legend styles */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    min-width: 250px;
+    min-height: 50px;
+}
+>>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 .info h4 {
     margin: 0 0 5px;
     color: #777;
@@ -93,6 +140,7 @@ body {
     opacity: 0.7;
 }
 
+<<<<<<< HEAD
 .figure {
 	display: block;
 	margin-left: auto;
@@ -117,3 +165,12 @@ img.figure {
 .sidebar-item {font-family: Verdana, Geneva, Tahoma, sans-serif;}
 .sidebar {font-family: Verdana, Geneva, Tahoma, sans-serif;}
 .sidebar-item {font-size: 80%;}
+=======
+.map-item {
+    border: 1px solid #333;
+    padding: 10px;
+    background-color: #111;
+}
+
+
+>>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
