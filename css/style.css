@@ -6,35 +6,49 @@ body,html {
 
 #map {
 	height: 100%;
+	text-align: center;
 }
 
 body {
 	display: grid;
-	grid-template-rows: 60px 1fr 40px;
-	grid-template-columns: 300px 1fr;
+	grid-template-rows: 60px 225px 1fr ;
+	grid-template-columns: 300px 1fr 400px;
 	grid-template-areas: 
-	"header header"
-	"sidebar content"
-	"footer footer";
+	"header header header"
+	"sidebar content dashboard"
+	"legend content dashboard"
+	"footer footer footer";
+}
+
+.dashboard {
+	grid-area: dashboard;
 }
 
 .header {
 	grid-area: header;
 	padding:10px;
-	background-color: #333;
+	background-color: rgb(88, 131, 248);
 	color: white;
 	font-size: 2em;
 }
 
 .sidebar {
+	color: #444;
 	grid-area: sidebar;
 	padding:10px;
-	background-color: #555;
+	background-color: rgb(139, 167, 243);
 	overflow: auto; /* allows the sidebar to overflow with a scrollbar */
+	
+}
+
+.sidebar-item:hover {
+	background-color: rgb(138, 167, 14);
 }
 
 .content {
 	grid-area: content;
+	resize: horizontal;
+	overflow: auto;
 }
 
 .footer {
@@ -45,8 +59,61 @@ body {
 
 .sidebar-item {
     padding: 10px; /* adds inner padding */
-    background: gainsboro; /* background color of the card */
-    border: 1px solid gray; /* border width and color */
+    background: rgb(182, 199, 245); /* background color of the card */
+    border: 1px solid rgb(104, 131, 253); /* border width and color */
     margin: 5px; /* outer padding */
 	cursor: pointer; /* change cursor to hand on hover */
 }
+
+/* legend styles */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    min-width: 250px;
+    min-height: 50px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.figure {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.figure {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.map-item {
+    border: 1px solid #333;
+    padding: 10px;
+    background-color: #333;
+}
+
+/* Fonts */
+.header {font-family:Verdana, Geneva, Tahoma, sans-serif;}
+.header {font-size: 180%;}
+.sidebar-item {font-family: Verdana, Geneva, Tahoma, sans-serif;}
+.sidebar {font-family: Verdana, Geneva, Tahoma, sans-serif;}
+.sidebar-item {font-size: 80%;}
