@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LA County Governance Water Map</title>
+	<title>LA County Water Systems</title>
 	<meta charset="utf-8" />
 
 	<!-- style sheets -->
@@ -17,24 +17,42 @@
 	<!-- papaparse for csv data -->
 	<script src="js/papaparse.min.js"></script>
 
+	<!-- classy brew -->
+	<script src="js/classybrew.js"></script>
+
+	<!-- apex charts -->
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+	<!-- js-grid -->
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+	
+
 </head>
 <body>
 
 	<div class="header">
-		LA County Governance Water Systems
+		LA County Governance Water Systems      |      
+		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="250px">
 	</div>
 	<div class="sidebar">
 		<div class="sidebar-title">Water Systems</div>
 		<div class="sidebar-content"></div>
+		<button onclick = 'myPopFunction()'>Water System Population</button>
+        <button onclick = 'myServeFunction()'>Water System Service Connections</button>
+        <button onclick = 'myGovTypeFunction()'>Water System Governance Type</button>
+        <button onclick = 'myMechTypeFunction()'>Water System Mechanism</button>
 	</div>
 	<div class="content">
 		<div id="map"></div>
 	</div>
+	<div class="dashboard"></div>
 	<div class="footer">
-
+		Source: <a href="https://gispublic.waterboards.ca.gov/portal/apps/webappviewer/index.html?id=272351aa7db14435989647a86e6d3ad8">CA State Water Board</a>
 	</div>
 
 	<script src="js/map.js"></script>
-
+	
 </body>
 </html>
