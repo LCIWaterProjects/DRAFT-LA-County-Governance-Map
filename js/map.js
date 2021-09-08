@@ -1,18 +1,10 @@
 // Global variables
 let map;
-<<<<<<< HEAD
 let lat = 34;
 let lon = -118;
 let zl = 9;
 
 let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/MergedData.geojson';
-=======
-let lat = 39;
-let lon = -98;
-let zl = 4;
-
-let geojsonPath = 'data/MergedData.geojson';
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 let geojson_data;
 let geojson_layer;
 
@@ -88,7 +80,6 @@ function mapGeoJSON(field,num_classes,color,scheme){
 
     // create the infopanel
     createInfoPanel();
-<<<<<<< HEAD
 
     //create table
     createTable();
@@ -129,45 +120,6 @@ function createLegend(){
         legend.addTo(map);
 }
 
-=======
-}
-
-function getStyle(feature){
-    return {
-        stroke: true,
-        color: 'white',
-        weight: 1,
-        fill: true,
-        fillColor: brew.getColorInRange(feature.properties[fieldtomap]),
-        fillOpacity: 0.8
-    }
-}
-
-function createLegend(){
-    legend.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'info legend'),
-        breaks = brew.getBreaks(),
-        labels = [],
-        from, to;
-        
-        for (var i = 0; i < breaks.length; i++) {
-            from = breaks[i];
-            to = breaks[i + 1];
-            if(to) {
-                labels.push(
-                    '<i style="background:' + brew.getColorInRange(to) + '"></i> ' +
-                    from.toFixed(0) + ' &ndash; ' + to.toFixed(0));
-                }
-            }
-            
-            div.innerHTML = labels.join('<br>');
-            return div;
-        };
-        
-        legend.addTo(map);
-}
-
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 function createInfoPanel(){
 
     info_panel.onAdd = function (map) {
@@ -233,7 +185,6 @@ function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
 
-<<<<<<< HEAD
 // Creating dashboard
 function createDashboard(properties){
 
@@ -244,7 +195,6 @@ function createDashboard(properties){
 
 	// chart title
 	let title = 'Household Income in ' + properties['Qualifying Name'];
-
 	// data values
 	let data = [27, 18, 32, 48, 3];
 	
@@ -318,8 +268,6 @@ function zoomTo(geoid){
 }
 
 // create buttons function
-=======
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 function myPopFunction(){
     mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
 
@@ -331,7 +279,3 @@ function myGovTypeFunction(){
 
 function myMechTypeFunction(){
     mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
-<<<<<<< HEAD
-=======
-
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
