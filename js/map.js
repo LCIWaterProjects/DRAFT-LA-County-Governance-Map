@@ -4,7 +4,7 @@ let lat = 34;
 let lon = -118;
 let zl = 9;
 
-let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/MergedData.geojson';
+let geojsonPath = 'data/MergedLAData';
 let geojson_data;
 let geojson_layer;
 
