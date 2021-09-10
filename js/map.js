@@ -8,6 +8,7 @@ let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-C
 let geojson_data;
 let geojson_layer;
 
+
 let brew = new classyBrew();
 let legend = L.control({position: 'bottomright'});
 let info_panel = L.control();
@@ -151,6 +152,7 @@ function createInfoPanel(){
     info_panel.addTo(map);
 }
 
+
 // Function that defines what will happen on user interactions with each feature
 function onEachFeature(feature, layer) {
     layer.on({
@@ -202,7 +204,6 @@ function createDashboard(properties){
 
 	// chart title
 	let title = 'Household Income in ' + properties['Qualifying Name'];
-
 	// data values
 	let data = [27, 18, 32, 48, 3];
 	
@@ -304,6 +305,9 @@ function myServeFunction(){
 
 function myGovTypeFunction(){
     mapGeoJSON('Gov Code',7,'Spectral','equal_interval');}
+
+//build categorical function here to test. 
+// the original function > 
 
 function myMechTypeFunction(){
     mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
