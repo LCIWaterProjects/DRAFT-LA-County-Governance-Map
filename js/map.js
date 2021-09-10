@@ -4,7 +4,7 @@ let lat = 34;
 let lon = -118;
 let zl = 9;
 
-let geojsonPath = 'data/Data_Update.geojson';
+let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/Data_Update.geojson';
 let geojson_data;
 let geojson_layer;
 
@@ -269,7 +269,7 @@ function zoomTo(geoid){
 
 // create buttons function
 function myPopFunction(){
-    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
+    mapGeoJSON('Population',5,'YlOrRd','quantiles');}
 
 function myServeFunction(){
     mapGeoJSON('SERVICE_CO',5,'BuPu','quantiles');}
