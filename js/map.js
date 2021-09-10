@@ -4,16 +4,15 @@ let lat = 34;
 let lon = -118;
 let zl = 9;
 
-let geojsonPath = 'data/MergedLAData';
+let geojsonPath = 'data/Data_Update.geojson';
 let geojson_data;
 let geojson_layer;
-
 
 let brew = new classyBrew();
 let legend = L.control({position: 'bottomright'});
 let info_panel = L.control();
 
-let fieldtomap = 'POPULATION';
+let fieldtomap = 'Population';
 
 // initialize+
 $( document ).ready(function() {
@@ -144,7 +143,6 @@ function createInfoPanel(){
 
     info_panel.addTo(map);
 }
-
 
 // Function that defines what will happen on user interactions with each feature
 function onEachFeature(feature, layer) {
@@ -279,11 +277,8 @@ function myServeFunction(){
 function myGovTypeFunction(){
     mapGeoJSON('Gov Code',7,'Spectral','equal_interval');}
 
-//build categorical function here to test. 
-// the original function > 
-
 function myMechTypeFunction(){
-    mapGeoJSON('Mechanism',7,'Spectral','quantiles');}
+    mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
 
 
 
