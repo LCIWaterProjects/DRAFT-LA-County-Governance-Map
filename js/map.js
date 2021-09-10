@@ -24,9 +24,16 @@ $( document ).ready(function() {
 function createMap(lat,lon,zl){
     map = L.map('map').setView([lat,lon], zl);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+	{
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'light-v10',
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: 'pk.eyJ1Ijoic2FyYWhwZXJlejEiLCJhIjoiY2t0MG9hZDNnMDZ2NDJ1c2M5dzBmb201OSJ9.5fv8NqX5cfA0NMcmEW_63g'
+	}).addTo(map);
+
 }
 
 // function to get the geojson data
@@ -238,7 +245,7 @@ function createDashboard(properties){
 		chart: {
 			type: 'pie',
 			height: 300,
-			width: '100%',			
+			width: '100%',	
 			animations: {
 				enabled: false,
 			}
@@ -267,6 +274,26 @@ function zoomTo(geoid){
 	map.fitBounds(zoom2poly[0].getBounds())
 }
 
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myDropFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
 // create buttons function
 function myPopFunction(){
     mapGeoJSON('Population',5,'YlOrRd','quantiles');}
@@ -280,5 +307,11 @@ function myGovTypeFunction(){
 function myMechTypeFunction(){
     mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
 
+function myRacePopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
 
+function myEthnPopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
 
+function mySexPopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
