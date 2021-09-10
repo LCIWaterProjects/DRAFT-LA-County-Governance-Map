@@ -1,18 +1,10 @@
 // Global variables
 let map;
-<<<<<<< HEAD
 let lat = 34;
 let lon = -118;
 let zl = 9;
 
 let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/MergedData.geojson';
-=======
-let lat = 39;
-let lon = -98;
-let zl = 4;
-
-let geojsonPath = 'data/MergedData.geojson';
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 let geojson_data;
 let geojson_layer;
 
@@ -32,9 +24,16 @@ $( document ).ready(function() {
 function createMap(lat,lon,zl){
     map = L.map('map').setView([lat,lon], zl);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+	{
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'light-v10',
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: 'pk.eyJ1Ijoic2FyYWhwZXJlejEiLCJhIjoiY2t0MG9hZDNnMDZ2NDJ1c2M5dzBmb201OSJ9.5fv8NqX5cfA0NMcmEW_63g'
+	}).addTo(map);
+
 }
 
 // function to get the geojson data
@@ -88,7 +87,6 @@ function mapGeoJSON(field,num_classes,color,scheme){
 
     // create the infopanel
     createInfoPanel();
-<<<<<<< HEAD
 
     //create table
     createTable();
@@ -129,45 +127,6 @@ function createLegend(){
         legend.addTo(map);
 }
 
-=======
-}
-
-function getStyle(feature){
-    return {
-        stroke: true,
-        color: 'white',
-        weight: 1,
-        fill: true,
-        fillColor: brew.getColorInRange(feature.properties[fieldtomap]),
-        fillOpacity: 0.8
-    }
-}
-
-function createLegend(){
-    legend.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'info legend'),
-        breaks = brew.getBreaks(),
-        labels = [],
-        from, to;
-        
-        for (var i = 0; i < breaks.length; i++) {
-            from = breaks[i];
-            to = breaks[i + 1];
-            if(to) {
-                labels.push(
-                    '<i style="background:' + brew.getColorInRange(to) + '"></i> ' +
-                    from.toFixed(0) + ' &ndash; ' + to.toFixed(0));
-                }
-            }
-            
-            div.innerHTML = labels.join('<br>');
-            return div;
-        };
-        
-        legend.addTo(map);
-}
-
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 function createInfoPanel(){
 
     info_panel.onAdd = function (map) {
@@ -233,7 +192,6 @@ function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
 
-<<<<<<< HEAD
 // Creating dashboard
 function createDashboard(properties){
 
@@ -288,7 +246,7 @@ function createDashboard(properties){
 		chart: {
 			type: 'pie',
 			height: 300,
-			width: '100%',			
+			width: '100%',	
 			animations: {
 				enabled: false,
 			}
@@ -317,9 +275,27 @@ function zoomTo(geoid){
 	map.fitBounds(zoom2poly[0].getBounds())
 }
 
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myDropFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
 // create buttons function
-=======
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
 function myPopFunction(){
     mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
 
@@ -331,7 +307,12 @@ function myGovTypeFunction(){
 
 function myMechTypeFunction(){
     mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
-<<<<<<< HEAD
-=======
 
->>>>>>> be8088a758595674f92e4d59348b5a181ab7583a
+function myRacePopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
+
+function myEthnPopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
+
+function mySexPopFunction(){
+    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
