@@ -49,12 +49,12 @@ body {
 }
 
 .sidebar {
+    line-height: 3em;
 	color: #444;
 	grid-area: sidebar;
 	padding:10px;
 	background-color: #E0E0E0;
 	overflow:initial; /* allows the sidebar to overflow with a scrollbar */
-    z-index: 1
 }
 
 .sidebar-title {
@@ -130,7 +130,6 @@ body {
     border: 1px solid rgb(104, 131, 253); /* border width and color */
     margin: 5px; /* outer padding */
 	cursor: pointer; /* change cursor to hand on hover */
-    z-index: 2
 }
 
 .figure {
@@ -161,7 +160,6 @@ img.figure {
     font-size: 15px;
     border: none;
     cursor: pointer;
-    z-index: 3
   }
   
   /* Dropdown button on hover & focus */
