@@ -139,7 +139,7 @@ function createInfoPanel(){
     info_panel.update = function (properties) {
         // if feature is highlighted
         if(properties){
-            this._div.innerHTML = `<b>${properties['WATER_SY_1']}</b><br>${fieldtomap}: ${properties[fieldtomap]}`;
+            this._div.innerHTML = `<b>${properties['WATER_SYS_1']}</b><br>${fieldtomap}: ${properties[fieldtomap]}`;
         }
         // if feature is not highlighted
         else
@@ -201,7 +201,7 @@ function createDashboard(properties){
 	console.log(properties)
 
 	// chart title
-	let title = 'Household Income in ' + properties['Qualifying Name'];
+	let title = 'Household Income in ' + properties['WATER_SYS_1'];
 	// data values
 	let data = [27, 18, 32, 48, 3];
 	
@@ -276,12 +276,31 @@ function zoomTo(geoid){
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myDropFunction() {
+function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+// Second dropdown button
+function myGovDropFunction() {
+    document.getElementById("myGovDropdown").classList.toggle("show");
+  }
+  
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
@@ -299,19 +318,10 @@ function myPopFunction(){
     mapGeoJSON('Population',5,'YlOrRd','quantiles');}
 
 function myServeFunction(){
-    mapGeoJSON('SERVICE_CO',5,'BuPu','quantiles');}
+    mapGeoJSON('Service_Co',5,'Dark2','quantiles');}
 
 function myGovTypeFunction(){
-    mapGeoJSON('Gov Code',7,'Spectral','equal_interval');}
+    mapGeoJSON('GovernanceCode',7,'Paired','equal_interval');}
 
 function myMechTypeFunction(){
-    mapGeoJSON('Mechanism',3,'PRGn','equal_interval');}
-
-function myRacePopFunction(){
-    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
-
-function myEthnPopFunction(){
-    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
-
-function mySexPopFunction(){
-    mapGeoJSON('POPULATION',5,'YlOrRd','quantiles');}
+    mapGeoJSON('MechanismCode',3,'Accent','equal_interval');}

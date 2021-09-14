@@ -39,23 +39,29 @@
 		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="250px">
 	</div>
 	<div class="sidebar">
-		<div class="dropdown">
-			<a onclick="myPopFunction()" class="dropbtn">Population Demographics</a>
+		<div><div class="dropdown">
+			<button onclick="myFunction()" class="dropbtn">Water System Information</button>
 			<div id="myDropdown" class="dropdown-content">
-				<a onclick="myRacePopFunction()" class="dropbtn">Race</a>
-				<a onclick="myEthnPopFunction()" class="dropbtn">Ethnicity</a>
-				<a onclick="mySexPopFunction()" class="dropbtn">Sex</a>
+			  <a onclick="myServeFunction()">Service Connections</a>
+			  <a onclick="myGovTypeFunction()">Governance Code</a>
 			</div>
-			<a onclick="myServeFunction()" class="dropbtn">Service Connections</a>
-			<div id="myDropdown" class="dropdown-content"></div>
-			<a onclick="myGovTypeFunction()" class="dropbtn">Governance Type</a>
-			<div id="myDropdown" class="dropdown-content"></div>
 		  </div>
+		</div>
+
+		<div><div class="dropdown">
+				<button onclick="myGovDropFunction()" class="dropbtn">Governance Information</button>
+				<div id="myGovDropdown" class="dropdown-content">
+			  		<a onclick="myMechTypeFunction()">Mechanism</a>
+				</div>
+		  	</div> 
+		</div> 
+	</div>
 	</div>
 	<div class="content">
 		<div id="map"></div>
 	</div>
-	<div class="dashboard"></div>
+	<div class="dashboard">
+	</div>
 	<div class="footer">
 		Source: <a href="https://gispublic.waterboards.ca.gov/portal/apps/webappviewer/index.html?id=272351aa7db14435989647a86e6d3ad8">CA State Water Board</a>
 	</div>
