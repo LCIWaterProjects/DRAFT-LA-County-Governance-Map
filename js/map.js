@@ -14,6 +14,7 @@ let info_panel = L.control();
 
 let fieldtomap = 'Population';
 
+
 // initialize+
 $( document ).ready(function() {
     createMap(lat,lon,zl);
@@ -33,6 +34,8 @@ function createMap(lat,lon,zl){
 		zoomOffset: -1,
 		accessToken: 'pk.eyJ1Ijoic2FyYWhwZXJlejEiLCJhIjoiY2t0MG9hZDNnMDZ2NDJ1c2M5dzBmb201OSJ9.5fv8NqX5cfA0NMcmEW_63g'
 	}).addTo(map);
+
+
 
 }
 
@@ -78,7 +81,7 @@ function mapGeoJSON(field,num_classes,color,scheme){
         style: getStyle, //call a function to style each feature
         onEachFeature: onEachFeature // actions on each feature
     }).addTo(map);
-
+    
     // turning off fit bounds so that we stay in mainland USA
     // map.fitBounds(geojson_layer.getBounds())
 
@@ -201,17 +204,30 @@ function createDashboard(properties){
 	console.log(properties)
 
 	// chart title
-	let title = 'Household Income in ' + properties['WATER_SYS_1'];
+	let title = 'Racial Demographics ' + properties['name'];
 	// data values
-	let data = [27, 18, 32, 48, 3];
+	let data = [
+            properties['Hispanic_Pop'],
+            properties['White_Pop'],
+            properties['Black_Pop'],
+            properties['AIAN_Pop'],
+            properties['Asian_Pop'],
+            properties['NHOPI_Pop'],
+            properties['OtherRace_Pop'],
+            properties['TwoMore_Pop'],
+    ]
+    
 	
 	// data fields
 	let fields = [
-		'% Less than $25,000',
-		'% $25,000 to $49,999',
-		'% $50,000 to $74,999',
-		'% $75,000 to $99,999',
-		'% $100,000 or More',
+		'Hispanic Population',
+		'White Population',
+		'Black Population',
+		'American Indian and Alaskan Native Population ',
+		'Asian Population',
+        'Native Hawaiian and other Pacific Islander Population',
+        'Other Race Population',
+        'Two or more Race Population',
 	]
 
 	// chart options
@@ -251,7 +267,7 @@ function createDashboard(properties){
 			}
 		},
 		title: {
-			text: 'Household Income in ' + properties['Qualifying Name'],
+			text: 'Water System Demographics ' + properties['name'],
 		},
 		series: data,
 		labels: fields,
@@ -321,7 +337,11 @@ function myServeFunction(){
     mapGeoJSON('Service_Co',5,'Dark2','quantiles');}
 
 function myGovTypeFunction(){
-    mapGeoJSON('GovernanceCode',7,'Paired','equal_interval');}
+    mapGeoJSON('GovernanceCode',7,'Paired','jenks');}
 
 function myMechTypeFunction(){
-    mapGeoJSON('MechanismCode',3,'Accent','equal_interval');}
+    mapGeoJSON('MechanismCode',3,'Accent','natural breaks');}
+    
+
+    
+
