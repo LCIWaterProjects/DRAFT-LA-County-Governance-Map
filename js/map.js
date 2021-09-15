@@ -181,6 +181,7 @@ function highlightFeature(e) {
     info_panel.update(layer.feature.properties);
 
     createDashboard(layer.feature.properties);
+    createNewDashboard(layer.feature.properties);
 
 }
 
@@ -282,6 +283,96 @@ function createDashboard(properties){
 	chart.render()
   
 }
+
+// Creating dashboard
+function createNewDashboard(properties){
+
+	// clear dashboard
+	$('.popdash').empty();
+
+	console.log(properties)
+
+	// chart title
+	let title = 'Racial Demographics ' + properties['name'];
+	// data values
+	let data = [
+            properties['Hispanic_Pop'],
+            properties['White_Pop'],
+            properties['Black_Pop'],
+            properties['AIAN_Pop'],
+            properties['Asian_Pop'],
+            properties['NHOPI_Pop'],
+            properties['OtherRace_Pop'],
+            properties['TwoMore_Pop'],
+    ]
+    
+	
+	// data fields
+	let fields = [
+		'Hispanic Population',
+		'White Population',
+		'Black Population',
+		'American Indian and Alaskan Native Population ',
+		'Asian Population',
+        'Native Hawaiian and other Pacific Islander Population',
+        'Other Race Population',
+        'Two or more Race Population',
+	]
+
+	// chart options
+	var options = {
+		chart: {
+			type: 'bar',
+			height: 300,
+			animations: {
+				enabled: false,
+			}
+		},
+		title: {
+			text: title
+		},
+		plotOptions: {
+			bar: {
+				horizontal: true
+			}
+		},
+		series: [
+			{
+				data: data
+			}
+		],
+		xaxis: {
+			categories: fields
+		}
+	}
+	
+	var options2 = {
+		chart: {
+			type: 'pie',
+			height: 300,
+			width: '100%',	
+			animations: {
+				enabled: false,
+			}
+		},
+		title: {
+			text: 'Water System Demographics ' + properties['name'],
+		},
+		series: data,
+		labels: fields,
+		legend: {
+			position: 'right',
+			offsetY: 0,
+			height: 230,
+		  }
+	};
+
+	var chart = new ApexCharts(document.querySelector('.popdash'), options)
+	chart.render()
+  
+}
+
+
 
 function zoomTo(geoid){
 

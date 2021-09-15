@@ -11,13 +11,13 @@ body,html {
 }
 
 body {
-	display: grid;
+	display:grid;
 	grid-template-rows: 60px 225px 1fr ;
 	grid-template-columns: 300px 1fr 400px;
 	grid-template-areas: 
 	"header header header"
-	"sidebar content dashboard"
-	"sidebar content dashboard"
+    "sidebar content dashboard"
+	"sidebar content popdash"
 	"footer footer footer";
 }
 
@@ -70,6 +70,12 @@ body {
 	grid-area: dashboard;
     background-color: #E0E0E0;
 }
+.popdash{
+    grid-area: popdash;
+    background-color: #8a3333;
+}
+
+
 
 .content {
 	grid-area: content;
