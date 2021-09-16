@@ -18,6 +18,7 @@ body {
 	"header header header"
     "sidebar content dashboard"
 	"sidebar content popdash"
+    "sidebar content billdash"
 	"footer footer footer";
 }
 
@@ -69,18 +70,23 @@ body {
 .dashboard {
 	grid-area: dashboard;
     background-color: #E0E0E0;
+    overflow: initial;
+    padding: 10px;
+    text-align:center;
 }
 .popdash{
     grid-area: popdash;
     background-color: #8a3333;
 }
 
-
+.billdash{
+    grid-area: billdash;
+    background-color: #9feaf0;
+}
 
 .content {
 	grid-area: content;
 	resize: horizontal;
-	overflow: auto;
 }
 
 .footer {
