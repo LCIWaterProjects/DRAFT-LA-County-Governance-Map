@@ -34,9 +34,6 @@ function createMap(lat,lon,zl){
 		zoomOffset: -1,
 		accessToken: 'pk.eyJ1Ijoic2FyYWhwZXJlejEiLCJhIjoiY2t0MG9hZDNnMDZ2NDJ1c2M5dzBmb201OSJ9.5fv8NqX5cfA0NMcmEW_63g'
 	}).addTo(map);
-
-
-
 }
 
 // function to get the geojson data
@@ -189,6 +186,7 @@ function highlightFeature(e) {
     createDashboard(layer.feature.properties);
     createNewDashboard(layer.feature.properties);
     createBillDashboard(layer.feature.properties);
+    createBillInfoDashboard(layer.feature.properties);
 }
 
 // on mouse out, reset the style, otherwise, it will remain highlighted
@@ -383,23 +381,16 @@ function createBillDashboard(properties){
 	// clear dashboard
 	$('.billdash').empty();
 
-	console.log(properties)
-
-	// chart title
-	let title = 'Average Bill ' + properties['name'];    
-	
-	// data fields
-	let fields = [
-		'name',
-	]
+	console.log(properties)   
 
     var options = {
         series: [{
-        name: "SAMPLE A",
-        data: [
-            properties['WaterBill']
-        ]
-      },],
+        name: 'Average Bill Cost',
+        data: [ properties ['WaterBill'], {
+          min: 10,
+          max: 120
+        }]
+      }],
         chart: {
         height: 350,
         type: 'scatter',
@@ -418,11 +409,61 @@ function createBillDashboard(properties){
       },
       yaxis: {
         tickAmount: 7
+      },
+      title: {
+        text: 'Average Bill ' + properties['name']
       }
       };
 
       var chart = new ApexCharts(document.querySelector(".billdash"), options);
       chart.render();
+  
+}
+
+// Creating dashboard
+function createBillInfoDashboard(properties){
+
+	// clear dashboard
+	$('.billinfodash').empty();
+
+	console.log(properties)
+
+	// chart options
+	var options = {
+		series: [
+            {
+              name: "basic",
+              data: [
+                  properties['POA'],
+                  properties['HMW'],
+              ]
+            }
+        ],
+        chart: {
+            type: "bar",
+            height: 350
+        },
+        plotOptions: {
+              bar: {
+              horizontal: true
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: [
+              "Percent of County-wide Average",
+              "Hours of Minimum Wage to Pay Bill"
+            ]
+        },
+        title: {
+			text: 'Bill Information ' + properties['name']
+		}
+	}
+
+	var chart = new ApexCharts(document.querySelector('.billinfodash'), options)
+	chart.render()
   
 }
 
@@ -472,6 +513,44 @@ window.onclick = function(event) {
     }
   }
 
+// Third dropdown button
+function myBillDropFunction() {
+    document.getElementById("myBillDropdown").classList.toggle("show");
+  }
+  
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+// Fourth dropdown button
+function myOperatorDropFunction() {
+  document.getElementById("myOpDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
 // create buttons function
 function myPopFunction(){
     mapGeoJSON('Population',5,'YlOrRd','quantiles');}
@@ -487,3 +566,12 @@ function myGovTypeFunction(){
 
 function myMechTypeFunction(){
     mapGeoJSON('MechanismCode',3,'Accent','natural breaks');}
+
+function myBillFunction(){
+    mapGeoJSON('WaterBill',7,'YlOrRd','quantiles');}
+
+function myOpBelowFunction(){
+    mapGeoJSON('Operator Below Required',5,'Accent','natural breaks');}
+
+function myNoOpFunction(){
+    mapGeoJSON('No operator',5,'Accent','natural breaks');}
