@@ -4,7 +4,7 @@ let lat = 34;
 let lon = -118;
 let zl = 9;
 
-let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/Op%20Data%20Update.geojson';
+let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/NewLAsystems.geojson';
 let geojson_data;
 let geojson_layer;
 
@@ -142,7 +142,13 @@ function createInfoPanel(){
     info_panel.update = function (properties) {
         // if feature is highlighted
         if(properties){
-            this._div.innerHTML = `<b>${properties['WATER_SYS_1']}</b><br>${fieldtomap}: ${properties[fieldtomap]}`;
+            this._div.innerHTML = `<b>${properties['name']}</b>
+                                    <br>Governance Type: ${properties['GovernanceType']}
+                                    <br>Next Election Year: ${properties['UpcomingElectionYear']}
+                                    <br>How is Leadership Chosen?: ${properties['Mechansim']}
+                                    <br>Average Water Bill: $${properties['WaterBill']}`
+
+                                    ;
         }
         // if feature is not highlighted
         else
@@ -182,7 +188,7 @@ function highlightFeature(e) {
 
     createDashboard(layer.feature.properties);
     createNewDashboard(layer.feature.properties);
-
+    createBillDashboard(layer.feature.properties);
 }
 
 // on mouse out, reset the style, otherwise, it will remain highlighted
@@ -283,7 +289,6 @@ function createDashboard(properties){
 	chart.render()
   
 }
-
 // Creating dashboard
 function createNewDashboard(properties){
 
@@ -372,7 +377,54 @@ function createNewDashboard(properties){
   
 }
 
+// Creating dashboard
+function createBillDashboard(properties){
 
+	// clear dashboard
+	$('.billdash').empty();
+
+	console.log(properties)
+
+	// chart title
+	let title = 'Average Bill ' + properties['name'];    
+	
+	// data fields
+	let fields = [
+		'name',
+	]
+
+    var options = {
+        series: [{
+        name: "SAMPLE A",
+        data: [
+            properties['WaterBill']
+        ]
+      },],
+        chart: {
+        height: 350,
+        type: 'scatter',
+        zoom: {
+          enabled: true,
+          type: 'xy'
+        }
+      },
+      xaxis: {
+        tickAmount: 10,
+        labels: {
+          formatter: function(val) {
+            return parseFloat(val).toFixed(1)
+          }
+        }
+      },
+      yaxis: {
+        tickAmount: 7
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector(".billdash"), options);
+      chart.render();
+  
+}
 
 function zoomTo(geoid){
 
@@ -424,6 +476,9 @@ window.onclick = function(event) {
 function myPopFunction(){
     mapGeoJSON('Population',5,'YlOrRd','quantiles');}
 
+function myRaceFunction(){
+    mapGeoJSON('Population',5,'YlOrRd','quantiles');
+}
 function myServeFunction(){
     mapGeoJSON('Service_Co',5,'Dark2','quantiles');}
 
@@ -432,7 +487,3 @@ function myGovTypeFunction(){
 
 function myMechTypeFunction(){
     mapGeoJSON('MechanismCode',3,'Accent','natural breaks');}
-    
-
-    
-
