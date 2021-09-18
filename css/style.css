@@ -16,12 +16,11 @@ body {
 	grid-template-columns: 300px 1fr 400px;
 	grid-template-areas: 
 	"header header header"
-    "sidebar content dashboard"
-	"sidebar content popdash"
-    "sidebar content billdash"
+    "sidebar content content"
+	"sidebar content content"
 	"footer footer footer";
 }
-
+  
 .header {
 	text-align: center;
     grid-area: header;
@@ -29,6 +28,8 @@ body {
 	background-color: #005687;
 	color: white;
 	font-size: 2em;
+
+
 }
 
 .legend {
@@ -54,10 +55,11 @@ body {
     line-height: 3em;
 	color: #444;
 	grid-area: sidebar;
-	padding:10px;
+	padding:5px;
 	background-color: #E0E0E0;
-	overflow:initial; /* allows the sidebar to overflow with a scrollbar */
+	overflow:scroll; /* allows the sidebar to overflow with a scrollbar */
 }
+
 
 .sidebar-title {
     color: #333
@@ -67,26 +69,16 @@ body {
 	background-color: rgb(138, 167, 14);
 }
 
+
 .dashboard {
 	grid-area: dashboard;
     background-color: #E0E0E0;
-    overflow: initial;
-    padding: 10px;
-    text-align:center;
-}
-.popdash{
-    grid-area: popdash;
-    background-color: #8a3333;
-}
-
-.billdash{
-    grid-area: billdash;
-    background-color: #9feaf0;
 }
 
 .content {
 	grid-area: content;
 	resize: horizontal;
+	overflow: auto;
 }
 
 .footer {
@@ -107,6 +99,18 @@ body {
     min-width: 250px;
     min-height: 50px;
 }
+
+.info-legend{
+padding: 6px 8px;
+background-color: rgba(255,255,255,0.8);
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+}
+.legend div {
+width: 18px;
+height: 18px;
+}
+
 .info h4 {
     margin: 0 0 5px;
     color: #777;
@@ -210,3 +214,9 @@ img.figure {
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+.info-value{
+    font-size: 2em;
+
+
+}
