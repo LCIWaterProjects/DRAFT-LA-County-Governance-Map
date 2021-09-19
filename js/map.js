@@ -1291,7 +1291,7 @@ function createInfoPanel(){
         // if feature is not highlighted
         else
         {
-            this._div.innerHTML = 'Click on a Water System';
+            this._div.innerHTML = 'Click on a Water System/add Spanish Translation';
         }
     };
 
