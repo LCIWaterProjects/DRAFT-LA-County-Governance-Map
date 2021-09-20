@@ -16,6 +16,7 @@ let fieldtomap = '' ;
 let fieldtype='choropleth'
 
 
+
 // initialize+
 $( document ).ready(function() {
     createMap(lat,lon,zl);
