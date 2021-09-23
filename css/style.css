@@ -13,7 +13,7 @@ body,html {
 body {
 	display:grid;
 	grid-template-rows: 60px 225px 1fr ;
-	grid-template-columns: 300px 1fr 400px;
+	grid-template-columns: 275px 1fr 400px;
 	grid-template-areas: 
 	"header header header"
     "sidebar content content"
@@ -28,17 +28,19 @@ body {
 	background-color: #005687;
 	color: white;
 	font-size: 2em;
-
-
 }
 
 .legend {
     grid-area: legend;
+    width:inherit;
+    height:inherit;
+    text-align: right;
 }
 
 .legend-inner {
     font-size: 0.8em;
-	padding: 12px;
+    text-align: right;
+	padding: 100px;
 	/* background-color: gainsboro; */
 	/* grid-area: legend; */
 }
@@ -52,14 +54,14 @@ body {
 }
 
 .sidebar {
-    line-height: 3em;
+    line-height: 2.6em;
 	color: #444;
 	grid-area: sidebar;
+    width: 265px;
 	padding:5px;
 	background-color: #E0E0E0;
 	overflow:scroll; /* allows the sidebar to overflow with a scrollbar */
 }
-
 
 .sidebar-title {
     color: #333
@@ -90,13 +92,13 @@ body {
 
 /* legend styles */
 .info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
+    padding: 8px 10px;
+    font: 14px/16px Verdana, Geneva, Tahoma, sans-serif;
     background: white;
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    min-width: 250px;
+    max-width: 400px;
     min-height: 50px;
 }
 
@@ -107,8 +109,8 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
 border-radius: 5px;
 }
 .legend div {
-width: 18px;
 height: 18px;
+font-weight: 400;
 }
 
 .info h4 {
@@ -118,11 +120,13 @@ height: 18px;
 
 .legend {
     line-height: 18px;
-    color: #555;
+    color: black;
+    font-weight: 400;
+    text-align: center;
 }
 .legend i {
-    width: 18px;
-    height: 18px;
+    width: 100px;
+    height: 100px;
     float: left;
     margin-right: 8px;
     opacity: 0.7;
@@ -145,7 +149,7 @@ height: 18px;
     padding: 10px; /* adds inner padding */
     background: rgb(182, 199, 245); /* background color of the card */
     border: 1px solid rgb(104, 131, 253); /* border width and color */
-    margin: 5px; /* outer padding */
+    margin: 50px; /* outer padding */
 	cursor: pointer; /* change cursor to hand on hover */
 }
 
@@ -157,8 +161,33 @@ height: 18px;
 
 img.figure {
 	display: block;
-	margin-left: auto;
+    margin-left: auto;
 	margin-right: auto;
+    text-align: center;
+}
+
+button {
+    background-color: #005687;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+    background-color: grey;
+    color: black;
+}
+
+b {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-overflow: inherit;
 }
 
 /* Fonts */
@@ -167,6 +196,7 @@ img.figure {
 .sidebar-item {font-family: Verdana, Geneva, Tahoma, sans-serif;}
 .sidebar {font-family: Verdana, Geneva, Tahoma, sans-serif;}
 .sidebar-item {font-size: 80%;}
+.sidebar-content{font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 100%;}
 
 
 /* Dropdown Button */
