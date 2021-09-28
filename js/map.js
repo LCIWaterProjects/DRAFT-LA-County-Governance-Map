@@ -12,7 +12,7 @@ let lacountypath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-
 let brew = new classyBrew();
 let legend = L.control({position: 'bottomleft'});
 let info_panel = L.control();
-let fieldtomap = '' ;
+let fieldtomap = 'Population' ;
 let fieldtype='choropleth'
 
 
@@ -125,16 +125,16 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 9  ? '#cab2d6' :
-                   d == 8  ? '#ff7f00' :
-                   d == 7  ? '#fdbf6f' :
-                   d == 6  ? '#e31a1c' :
-                   d == 5  ? '#fb9a99' :
-                   d == 4  ? '#33a02c' :
-                   d == 3  ? '#b2df8a' :
-                   d == 2  ? '#1f78b4' :
-                   d == 1  ? '#a6cee3':
-                                '#412722';
+            return d == 9  ? '#8264AF' :
+                   d == 8  ? '#5B769A' :
+                   d == 7  ? '#008EE0' :
+                   d == 6  ? '#83BAD8' :
+                   d == 5  ? '#798F42' :
+                   d == 4  ? '#B3C383' :
+                   d == 3  ? '#FFE15C' :
+                   d == 2  ? '#F2A202' :
+                   d == 1  ? '#B75615':
+                                '#5B769A';
                               
         }
      }
@@ -150,10 +150,10 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 3  ? '#fc8d62' :
-                   d == 2  ? '#8da0cb' :
-                   d == 1  ? '#66c2a5':
-                                '#412722';
+            return d == 3  ? '#5B8E7D' :
+                   d == 2  ? '#F4E285' :
+                   d == 1  ? '#F4A259':
+                                '#8CB369';
                               
         }
     }
@@ -169,12 +169,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 476000  ? '#33a02c' :
-                    d > 270000  ? '#b2df8a' :
-                    d > 115000  ? '#1f78b4' :
-                    d > 70000  ? '#fb9a99' :
-                    d > 35000  ? '#a6cee3':
-                                 '#412722';
+            return  d > 476000  ? '#8D3C01' :
+                    d > 270000  ? '#BD580F' :
+                    d > 115000  ? '#E37826' :
+                    d > 70000  ? '#FF990A' :
+                    d > 35000  ? '#FFC247':
+                                 '#FFD899';
                               
         }
     }
@@ -190,12 +190,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 100000 ? '#33a02c' :
-                    d > 30000  ? '#b2df8a' :
-                    d > 10000 ? '#1f78b4' :
-                    d > 3300 ? '#fb9a99' :
-                    d > 500  ? '#a6cee3':
-                                 '#412722';
+            return  d > 100000 ? '#1565C0' :
+                    d > 30000  ? '#1E88E5' :
+                    d > 10000 ? '#42A5F5' :
+                    d > 3300 ? '#64B5F6' :
+                    d > 500  ? '#90CAF9':
+                                 '#BBDEFB';
                               
         }
     }
@@ -211,12 +211,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 90  ? '#b2df8a' :
-                    d > 72 ? '#1f78b4' :
-                    d > 57 ? '#fb9a99' :
-                    d > 38  ? '#a6cee3':
-                    d > 0 ? '#cab2d6':
-                                 '#412722';
+            return  d > 90  ? '#6C0F12' :
+                    d > 72 ? '#A4161A' :
+                    d > 57 ? '#D71D24' :
+                    d > 38  ? '#E74B51':
+                    d > 0 ? '#EE8185':
+                                 '#F5B7B9';
                               
         }
     }
@@ -232,15 +232,15 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d == 8  ? '#cab2d6' :
-            d == 7  ? '#ff7f00' :
-            d == 6  ? '#fdbf6f' :
-            d == 5  ? '#e31a1c' :
-            d == 4  ? '#fb9a99' :
-            d == 3  ? '#33a02c' :
-            d == 2  ? '#b2df8a' :
-            d == 1  ? '#1f78b4' :
-                         '#412722';
+            return  d == 8  ? '#1E6091' :
+            d == 7  ? '#1A759F' :
+            d == 6  ? '#168AAD' :
+            d == 5  ? '#34A0A4' :
+            d == 4  ? '#52B69A' :
+            d == 3  ? '#76C893' :
+            d == 2  ? '#99D98C' :
+            d == 1  ? '#B5E48C' :
+                         '#D9ED92';
         }
     }
     else if(fieldtomap == 'Operator Below Required'){
@@ -255,8 +255,8 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
+            return  d == 1 ? '#FA0F36' :
+            d == 0  ? '#ABB4C4' :
                          '#412722';
         }
     }
@@ -272,8 +272,8 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
+            return  d == 1 ? '#FA0F36' :
+            d == 0  ? '#ABB4C4' :
                          '#412722';
         }
     }
@@ -314,10 +314,10 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 3  ? '#fc8d62' :
-                   d == 2  ? '#8da0cb' :
-                   d == 1  ? '#66c2a5':
-                                '#412722';
+            return d == 3  ? '#5B8E7D' :
+                   d == 2  ? '#F4A259' :
+                   d == 1  ? '#F4E285' :
+                                '#8CB369';
                               
         }
     }
@@ -333,12 +333,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 476000  ? '#33a02c' :
-                    d > 270000  ? '#b2df8a' :
-                    d > 115000  ? '#1f78b4' :
-                    d > 70000  ? '#fb9a99' :
-                    d > 35000  ? '#a6cee3':
-                                 '#412722';
+            return  d > 476000  ? '#E37F78' :
+                    d > 270000  ? '#DC5F56' :
+                    d > 115000  ? '#D53F34' :
+                    d > 70000  ? '#BA3026' :
+                    d > 35000  ? '#98271F':
+                                 '#771F18';
                               
         }
     }
@@ -479,10 +479,10 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 3  ? '#fc8d62' :
-                   d == 2  ? '#8da0cb' :
-                   d == 1  ? '#66c2a5':
-                                '#412722';
+            return d == 3  ? '#5B8E7D' :
+                   d == 2  ? '#F4A259' :
+                   d == 1  ? '#F4E285':
+                                '#8CB369';
                               
         }
     }
@@ -797,15 +797,15 @@ function createLegend(){
         if(fieldtomap == 'GovernanceCode'){
             div.innerHTML =
             '<b>Water System Governance Type</b>'+
-            '<div style="background-color: #a6cee3"></div>City/Municpal<br>' +
-            '<div style="background-color: #1f78b4"></div>County<br>' +
-            '<div style="background-color: #b2df8a"></div>Mutual Water Company<br>'+
-            '<div style="background-color: #33a02c"></div>Investor Owned Utility<br>' +
-            '<div style="background-color: #fb9a99"></div>Special District<br>' +
-            '<div style="background-color: #e31a1c"></div>Mobile Home<br>' +
-            '<div style="background-color: #fdbf6f"></div>Irrigation District<br>'+
-            '<div style="background-color: #ff7f00"></div>Other Private<br>'+
-            '<div style="background-color: #cab2d6"></div>Unknown<br>'
+            '<div style="background-color: #B75615">City/Municpal</div><br>' +
+            '<div style="background-color: #F2A202">County</div><br>' +
+            '<div style="background-color: #FFE15C">Mutual Water Company</div><br>'+
+            '<div style="background-color: #B3C383">Investor Owned Utility</div><br>' +
+            '<div style="background-color: #798F42">Special District</div><br>' +
+            '<div style="background-color: #83BAD8">Mobile Home</div><br>' +
+            '<div style="background-color: #008EE0">Irrigation District</div><br>'+
+            '<div style="background-color: #5B769A">Other Private</div><br>'+
+            '<div style="background-color: #8264AF">Unknown</div><br>'
             return div;
             
     
@@ -813,9 +813,9 @@ function createLegend(){
         else if(fieldtomap == 'MechanismCode'){
             div.innerHTML =
             '<b>Governance Mechanism</b>'+
-            '<div style="background-color: #66c2a5"></div>Election<br>'+
-            '<div style="background-color: #8da0cb"></div>Appointment<br>'+
-            '<div style="background-color: #fc8d62"></div>No Data<br>'
+            '<div style="background-color: #5B8E7D">Election</div><br>'+
+            '<div style="background-color: #F4E285">Appointment</div><br>'+
+            '<div style="background-color: #F4A259">No Data</div><br>'
             return div;
             console.log('mapping mechanism code')
 
@@ -825,12 +825,12 @@ function createLegend(){
         else if(fieldtomap == 'Population'){
             div.innerHTML =
             '<b>Water System Population</b>'+
-            '<div style="background-color: #412722"></div>0 - 35,000<br>'+
-            '<div style="background-color: #8da0cb"></div>35,001 - 70,000<br>'+
-            '<div style="background-color: #8da0cb"></div>70,001 - 115,000<br>'+
-            '<div style="background-color: #8da0cb"></div>115,001 - 270,000<br>'+
-            '<div style="background-color: #8da0cb"></div>270,001 - 476000 <br>'+
-            '<div style="background-color: #8da0cb"></div>Over 476,000<br>'
+            '<div style="background-color: #FFD899">0 - 35,000</div><br>'+
+            '<div style="background-color: #FFC247">35,001 - 70,000</div><br>'+
+            '<div style="background-color: #FF990A">70,001 - 115,000</div><br>'+
+            '<div style="background-color: #E37826">115,001 - 270,000</div><br>'+
+            '<div style="background-color: #BD580F">270,001 - 476000</div><br>'+
+            '<div style="background-color: #8D3C01">Over 476,000</div><br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -841,12 +841,12 @@ function createLegend(){
         else if(fieldtomap == 'Service_Co'){
             div.innerHTML =
             '<b>Water System Service Connections</b>'+
-            '<div style="background-color: #412722"></div>0 - 500<br>'+
-            '<div style="background-color: #8da0cb"></div>501 - 3,300<br>'+
-            '<div style="background-color: #8da0cb"></div>3,301 - 10,000<br>'+
-            '<div style="background-color: #8da0cb"></div>10,001 - 30,000<br>'+
-            '<div style="background-color: #8da0cb"></div>30,001 - 100,000 <br>'+
-            '<div style="background-color: #8da0cb"></div>Over 100,000<br>'
+            '<div style="background-color: #BBDEFB">0 - 500</div><br>'+
+            '<div style="background-color: #90CAF9">501 - 3,300</div><br>'+
+            '<div style="background-color: #64B5F6">3,301 - 10,000</div><br>'+
+            '<div style="background-color: #42A5F5">10,001 - 30,000</div><br>'+
+            '<div style="background-color: #1E88E5">30,001 - 100,000</div><br>'+
+            '<div style="background-color: #1565C0">Over 100,000</div><br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -857,12 +857,12 @@ function createLegend(){
         else if(fieldtomap == 'WaterBill'){
             div.innerHTML =
             '<b>Average Household Water Bill</b>'+
-            '<div style="background-color: #8da0cb"></div>$0 - $38<br>'+
-            '<div style="background-color: #8da0cb"></div>$38 -$57<br>'+
-            '<div style="background-color: #8da0cb"></div>$57 - $72<br>'+
-            '<div style="background-color: #8da0cb"></div>$72 - $90 <br>'+
-            '<div style="background-color: #8da0cb"></div>Over $90<br>'+
-            '<div style="background-color: #412722"></div>No Rate Data<br>'
+            '<div style="background-color: #F5B7B9">$0 - $38</div><br>'+
+            '<div style="background-color: #EE8185">$38 -$57</div><br>'+
+            '<div style="background-color: #E74B51">$57 - $72</div><br>'+
+            '<div style="background-color: #D71D24">$72 - $90</div><br>'+
+            '<div style="background-color: #A4161A">Over $90</div><br>'+
+            '<div style="background-color: #6C0F12">No Rate Data</div><br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -873,15 +873,15 @@ function createLegend(){
         else if(fieldtomap == 'HMW'){
             div.innerHTML =
             '<b>Hours At Minimum Wage</b>'+
-            '<div style="background-color: #a6cee3"></div>1 Hour<br>' +
-            '<div style="background-color: #1f78b4"></div>2 Hours<br>' +
-            '<div style="background-color: #b2df8a"></div>3 Hours<br>'+
-            '<div style="background-color: #33a02c"></div>4 Hours<br>' +
-            '<div style="background-color: #fb9a99"></div>5 Hours<br>' +
-            '<div style="background-color: #e31a1c"></div>6 Hours<br>' +
-            '<div style="background-color: #fdbf6f"></div>7 Hours<br>'+
-            '<div style="background-color: #ff7f00"></div>8 Hours<br>'+
-            '<div style="background-color: #ff7f00"></div>No Data<br>'
+            '<div style="background-color: #D9ED92">1 Hour</div><br>' +
+            '<div style="background-color: #B5E48C">2 Hours</div><br>' +
+            '<div style="background-color: #99D98C">3 Hours</div><br>'+
+            '<div style="background-color: #76C893">4 Hours</div><br>' +
+            '<div style="background-color: #52B69A">5 Hours</div><br>' +
+            '<div style="background-color: #34A0A4">6 Hours</div><br>' +
+            '<div style="background-color: #168AAD">7 Hours</div><br>'+
+            '<div style="background-color: #1A759F">8 Hours</div><br>'+
+            '<div style="background-color: #1E6091">No Data</div><br>'
 
 
             return div;
@@ -893,8 +893,8 @@ function createLegend(){
         else if(fieldtomap == 'Operator Below Required'){
             div.innerHTML =
             '<b>Operator Below Required</b>'+
-            '<div style="background-color: #a6cee3"></div>Yes<br>' +
-            '<div style="background-color: #1f78b4"></div>No<br>' 
+            '<div style="background-color: #FA0F36">Yes</div><br>' +
+            '<div style="background-color: #ABB4C4">No</div><br>' 
             
 
 
@@ -907,8 +907,8 @@ function createLegend(){
         else if(fieldtomap == 'No operator'){
             div.innerHTML =
             '<b>Does my water system have an operator</b>'+
-            '<div style="background-color: #a6cee3"></div>Yes<br>' +
-            '<div style="background-color: #1f78b4"></div>No<br>' 
+            '<div style="background-color: #FA0F36">Yes</div><br>' +
+            '<div style="background-color: #ABB4C4">No</div><br>' 
             
 
 
@@ -1085,7 +1085,7 @@ function createInfoPanel(){
         if(properties){
             this._div.innerHTML =`<br><b> ${properties['Name']}</b>`
             if(fieldtomap == 'GovernanceCode'){
-            this._div.innerHTML =`<br><b>Governance Information</b>
+            this._div.innerHTML =`<b>Governance Information</b>
             <div><b>${properties['Name']}</b>
             <br>Link to Water System Website if able
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
@@ -1098,7 +1098,7 @@ function createInfoPanel(){
             <br> Insert Population Chart here?
             <br`}    
         else if(fieldtomap == 'MechanismCode'){
-            this._div.innerHTML = `<br><b>Governance Information</b>
+            this._div.innerHTML = `<b>Governance Information</b>
             <div><b>${properties['Name']}</b>
             <br>Link to Water System Website if able
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
@@ -1111,7 +1111,7 @@ function createInfoPanel(){
             <br> Insert Population Chart here?
             <br`}    
             else if(fieldtomap == 'Population'){
-                this._div.innerHTML = `<br><b>Governance Information</b>
+                this._div.innerHTML = `<b>Governance Information</b>
                 <div><b>${properties['Name']}</b>
                 <br>Link to Water System Website if able
                 <br><b>Governance Type:</b> ${properties['GovernanceType']}
@@ -1125,7 +1125,7 @@ function createInfoPanel(){
                 <br`}    
 
        else if(fieldtomap == 'Service_Co'){
-                this._div.innerHTML = `<br><b>Governance Information</b>
+                this._div.innerHTML = `<b>Governance Information</b>
                                         <div><b>${properties['Name']}</b>
                                         <br>Link to Water System Website if able
                                         <br><b>Governance Type:</b> ${properties['GovernanceType']}
@@ -1305,9 +1305,7 @@ function onEachFeature(feature, layer) {
     layer.on({
         //mouseover: highlightFeature,
         //mouseout: resetHighlight,
-        //click: zoomToFeature,
-        click: highlightFeature,
-       
+        click: zoomToFeature,
     });
 }
 
@@ -1325,7 +1323,7 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
-    info_panel.update(layer.feature.properties);
+    
     createDashboard(layer.feature.properties);
     
    
@@ -1340,6 +1338,7 @@ function resetHighlight(e) {
 // on mouse click on a feature, zoom in to it
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
+    info_panel.update(layer.feature.properties);
 }
 
 // Creating dashboard
@@ -1587,83 +1586,6 @@ function zoomTo(geoid){
 
 	map.fitBounds(zoom2poly[0].getBounds())
 }
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-// Second dropdown button
-function myGovDropFunction() {
-    document.getElementById("myGovDropdown").classList.toggle("show");
-  }
-  
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-  // Third dropdown button
-function myBillDropFunction() {
-    document.getElementById("myBillDropdown").classList.toggle("show");
-  }
-  
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-  // Fourth dropdown button
-function myOperatorDropFunction() {
-    document.getElementById("myOpDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
 
 // create buttons function
 function myPopFunction(){
