@@ -602,7 +602,7 @@ function getStyle(feature){
         function getColor(d) {
 
             return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
+                    d == 0  ? '#ff7f00' :
                          '#412722';
         }
     }
