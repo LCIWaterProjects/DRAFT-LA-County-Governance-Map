@@ -20,7 +20,7 @@ body {
 	"sidebar content content"
 	"footer footer footer";
 }
-  
+
 .header {
 	text-align: center;
     grid-area: header;
@@ -74,6 +74,9 @@ body {
 
 .dashboard {
 	grid-area: dashboard;
+    max-width: 200;
+    max-height: 200;
+    margin: 35px auto;
     background-color: #E0E0E0;
 }
 
@@ -109,8 +112,12 @@ box-shadow: 0 0 15px rgba(0,0,0,0.2);
 border-radius: 5px;
 }
 .legend div {
-height: 18px;
-font-weight: 400;
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+    
 }
 
 .info h4 {
@@ -122,7 +129,7 @@ font-weight: 400;
     line-height: 18px;
     color: black;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
 }
 .legend i {
     width: 100px;
@@ -248,5 +255,12 @@ b {
 .info-value{
     font-size: 2em;
 
+
+}
+
+#apexchart {
+    color: aqua;
+    max-width: 300;
+    margin: 35px auto;
 
 }

@@ -12,7 +12,7 @@ let lacountypath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-
 let brew = new classyBrew();
 let legend = L.control({position: 'bottomleft'});
 let info_panel = L.control();
-let fieldtomap = 'Population' ;
+let fieldtomap = 'GovernanceCode' ;
 let fieldtype='choropleth'
 
 
@@ -44,7 +44,7 @@ function createMap(lat,lon,zl){
       const searchControl = new SearchControl({
           provider: new OpenStreetMapProvider(),
           style: 'bar',
-          position: 'topright',
+          position: 'topleft',
         });
       
         map.addControl(searchControl);
@@ -796,26 +796,26 @@ function createLegend(){
 
         if(fieldtomap == 'GovernanceCode'){
             div.innerHTML =
-            '<b>Water System Governance Type</b>'+
-            '<div style="background-color: #B75615">City/Municpal</div><br>' +
-            '<div style="background-color: #F2A202">County</div><br>' +
-            '<div style="background-color: #FFE15C">Mutual Water Company</div><br>'+
-            '<div style="background-color: #B3C383">Investor Owned Utility</div><br>' +
-            '<div style="background-color: #798F42">Special District</div><br>' +
-            '<div style="background-color: #83BAD8">Mobile Home</div><br>' +
-            '<div style="background-color: #008EE0">Irrigation District</div><br>'+
-            '<div style="background-color: #5B769A">Other Private</div><br>'+
-            '<div style="background-color: #8264AF">Unknown</div><br>'
+            '<b>Water System <br>Governance Type</b><br>'+
+            '<div style="background-color: #B75615"></div>City/Municpal<br>' +
+            '<div style="background-color: #F2A202"></div>County<br>' +
+            '<div style="background-color: #FFE15C"></div>Mutual Water Company<br>'+
+            '<div style="background-color: #B3C383"></div>Investor Owned Utility<br>' +
+            '<div style="background-color: #798F42"></div>Special District<br>' +
+            '<div style="background-color: #83BAD8"></div>Mobile Home<br>' +
+            '<div style="background-color: #008EE0"></div>Irrigation District<br>'+
+            '<div style="background-color: #5B769A"></div>Other Private<br>'+
+            '<div style="background-color: #8264AF"></div>Unknown<br>'
             return div;
             
     
         }
         else if(fieldtomap == 'MechanismCode'){
             div.innerHTML =
-            '<b>Governance Mechanism</b>'+
-            '<div style="background-color: #5B8E7D">Election</div><br>'+
-            '<div style="background-color: #F4E285">Appointment</div><br>'+
-            '<div style="background-color: #F4A259">No Data</div><br>'
+            '<b>How Is Leadership Chosen?</b><br>'+
+            '<div style="background-color: #5B8E7D"></div>Election<br>'+
+            '<div style="background-color: #F4E285"></div>Appointment<br>'+
+            '<div style="background-color: #F4A259"></div>No Data<br>'
             return div;
             console.log('mapping mechanism code')
 
@@ -824,13 +824,13 @@ function createLegend(){
         }
         else if(fieldtomap == 'Population'){
             div.innerHTML =
-            '<b>Water System Population</b>'+
-            '<div style="background-color: #FFD899">0 - 35,000</div><br>'+
-            '<div style="background-color: #FFC247">35,001 - 70,000</div><br>'+
-            '<div style="background-color: #FF990A">70,001 - 115,000</div><br>'+
-            '<div style="background-color: #E37826">115,001 - 270,000</div><br>'+
-            '<div style="background-color: #BD580F">270,001 - 476000</div><br>'+
-            '<div style="background-color: #8D3C01">Over 476,000</div><br>'
+            '<b>Water System Population</b><br>'+
+            '<div style="background-color: #FFD899"></div>0 - 35,000<br>'+
+            '<div style="background-color: #FFC247"></div>35,001 - 70,000<br>'+
+            '<div style="background-color: #FF990A"></div>70,001 - 115,000<br>'+
+            '<div style="background-color: #E37826"></div>115,001 - 270,000<br>'+
+            '<div style="background-color: #BD580F"></div>270,001 - 476000<br>'+
+            '<div style="background-color: #8D3C01"></div>Over 476,000<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -840,13 +840,13 @@ function createLegend(){
         }
         else if(fieldtomap == 'Service_Co'){
             div.innerHTML =
-            '<b>Water System Service Connections</b>'+
-            '<div style="background-color: #BBDEFB">0 - 500</div><br>'+
-            '<div style="background-color: #90CAF9">501 - 3,300</div><br>'+
-            '<div style="background-color: #64B5F6">3,301 - 10,000</div><br>'+
-            '<div style="background-color: #42A5F5">10,001 - 30,000</div><br>'+
-            '<div style="background-color: #1E88E5">30,001 - 100,000</div><br>'+
-            '<div style="background-color: #1565C0">Over 100,000</div><br>'
+            '<b>Water System Service Connections</b><br>'+
+            '<div style="background-color: #BBDEFB"></div>0 - 500<br>'+
+            '<div style="background-color: #90CAF9"></div>501 - 3,300<br>'+
+            '<div style="background-color: #64B5F6"></div>3,301 - 10,000<br>'+
+            '<div style="background-color: #42A5F5"></div>10,001 - 30,000<br>'+
+            '<div style="background-color: #1E88E5"></div>30,001 - 100,000<br>'+
+            '<div style="background-color: #1565C0"></div>Over 100,000<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -856,13 +856,13 @@ function createLegend(){
         }
         else if(fieldtomap == 'WaterBill'){
             div.innerHTML =
-            '<b>Average Household Water Bill</b>'+
-            '<div style="background-color: #F5B7B9">$0 - $38</div><br>'+
-            '<div style="background-color: #EE8185">$38 -$57</div><br>'+
-            '<div style="background-color: #E74B51">$57 - $72</div><br>'+
-            '<div style="background-color: #D71D24">$72 - $90</div><br>'+
-            '<div style="background-color: #A4161A">Over $90</div><br>'+
-            '<div style="background-color: #6C0F12">No Rate Data</div><br>'
+            '<b>Average Household Water Bill</b><br>'+
+            '<div style="background-color: #F5B7B9"></div>$0 - $38<br>'+
+            '<div style="background-color: #EE8185"></div>$38 -$57<br>'+
+            '<div style="background-color: #E74B51"></div>$57 - $72<br>'+
+            '<div style="background-color: #D71D24"></div>$72 - $90<br>'+
+            '<div style="background-color: #A4161A"></div>Over $90<br>'+
+            '<div style="background-color: #6C0F12"></div>No Rate Data<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -872,16 +872,16 @@ function createLegend(){
         }
         else if(fieldtomap == 'HMW'){
             div.innerHTML =
-            '<b>Hours At Minimum Wage</b>'+
-            '<div style="background-color: #D9ED92">1 Hour</div><br>' +
-            '<div style="background-color: #B5E48C">2 Hours</div><br>' +
-            '<div style="background-color: #99D98C">3 Hours</div><br>'+
-            '<div style="background-color: #76C893">4 Hours</div><br>' +
-            '<div style="background-color: #52B69A">5 Hours</div><br>' +
-            '<div style="background-color: #34A0A4">6 Hours</div><br>' +
-            '<div style="background-color: #168AAD">7 Hours</div><br>'+
-            '<div style="background-color: #1A759F">8 Hours</div><br>'+
-            '<div style="background-color: #1E6091">No Data</div><br>'
+            '<b>Hours At Minimum Wage</b><br>'+
+            '<div style="background-color: #D9ED92"></div>1 Hour<br>' +
+            '<div style="background-color: #B5E48C"></div>2 Hours<br>' +
+            '<div style="background-color: #99D98C"></div>3 Hours<br>'+
+            '<div style="background-color: #76C893"></div>4 Hours<br>' +
+            '<div style="background-color: #52B69A"></div>5 Hours<br>' +
+            '<div style="background-color: #34A0A4"></div>6 Hours<br>' +
+            '<div style="background-color: #168AAD"></div>7 Hours<br>'+
+            '<div style="background-color: #1A759F"></div>8 Hours<br>'+
+            '<div style="background-color: #1E6091"></div>No Data<br>'
 
 
             return div;
@@ -892,9 +892,9 @@ function createLegend(){
         }
         else if(fieldtomap == 'Operator Below Required'){
             div.innerHTML =
-            '<b>Operator Below Required</b>'+
-            '<div style="background-color: #FA0F36">Yes</div><br>' +
-            '<div style="background-color: #ABB4C4">No</div><br>' 
+            '<b>Operator Below Required</b><br>'+
+            '<div style="background-color: #FA0F36"></div>Yes<br>' +
+            '<div style="background-color: #ABB4C4"></div>No<br>' 
             
 
 
@@ -906,9 +906,9 @@ function createLegend(){
         }
         else if(fieldtomap == 'No operator'){
             div.innerHTML =
-            '<b>Does my water system have an operator</b>'+
-            '<div style="background-color: #FA0F36">Yes</div><br>' +
-            '<div style="background-color: #ABB4C4">No</div><br>' 
+            '<b>Does my water system have an operator</b><br>'+
+            '<div style="background-color: #FA0F36"></div>Yes<br>' +
+            '<div style="background-color: #ABB4C4"></div>No<br>' 
             
 
 
@@ -922,7 +922,7 @@ function createLegend(){
 
         if(fieldtomap == 'SpanGovernanceCode'){
             div.innerHTML =
-            '<b>Water System Governance Type</b>'+
+            '<b>Water System Governance Type</b><br>'+
             '<div style="background-color: #a6cee3"></div>City/Municpal<br>' +
             '<div style="background-color: #1f78b4"></div>County<br>' +
             '<div style="background-color: #b2df8a"></div>Mutual Water Company<br>'+
@@ -938,12 +938,12 @@ function createLegend(){
         }
         else if(fieldtomap == 'SpanMechanismCode'){
             div.innerHTML =
-            '<b>Governance Mechanism</b>'+
+            '<b>How Is Leadership Chosen?/b>'+
             '<div style="background-color: #66c2a5"></div>Election<br>'+
             '<div style="background-color: #8da0cb"></div>Appointment<br>'+
             '<div style="background-color: #fc8d62"></div>No Data<br>'
             return div;
-            console.log('mapping mechanism code')
+            
 
 
 
@@ -959,7 +959,7 @@ function createLegend(){
             '<div style="background-color: #8da0cb"></div>Over 476,000<br>'
 
             return div;
-            console.log('mapping mechanism code')
+            
 
 
 
@@ -1087,7 +1087,7 @@ function createInfoPanel(){
             if(fieldtomap == 'GovernanceCode'){
             this._div.innerHTML =`<b>Governance Information</b>
             <div><b>${properties['Name']}</b>
-            <br>Link to Water System Website if able
+            <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
             <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
             <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
@@ -1095,8 +1095,11 @@ function createInfoPanel(){
             <br>Participation Info here? 
             <br><b>Service Connections</b> ${properties['Service_Co']}
             <br><b>System Population:</b> ${properties['Population']}
-            <br> Insert Population Chart here?
-            <br`}    
+            <br><div id="apexchart">
+            </div>
+            
+            ` 
+            }    
         else if(fieldtomap == 'MechanismCode'){
             this._div.innerHTML = `<b>Governance Information</b>
             <div><b>${properties['Name']}</b>
@@ -1292,7 +1295,8 @@ function createInfoPanel(){
         // if feature is not highlighted
         else
         {
-            this._div.innerHTML = 'Click on a Water System/add Spanish Translation';
+            this._div.innerHTML = 'Click on a Water System<br>'+
+                                    'Spanish Translate';
         }
     };
 
@@ -1305,12 +1309,14 @@ function onEachFeature(feature, layer) {
     layer.on({
         //mouseover: highlightFeature,
         //mouseout: resetHighlight,
-        click: zoomToFeature,
+        click: highlightFeature, 
     });
 }
 
 // on mouse over, highlight the feature
 function highlightFeature(e) {
+    resetHighlight(e)
+  
     var layer = e.target;
 
     // style to use on mouse over
@@ -1323,7 +1329,7 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
-    
+    info_panel.update(layer.feature.properties);
     createDashboard(layer.feature.properties);
     
    
@@ -1339,247 +1345,85 @@ function resetHighlight(e) {
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
     info_panel.update(layer.feature.properties);
-}
+};
+//function createDashboard(properties){
 
-// Creating dashboard
+	// clear dashboard
+	//$('.dashboard').empty();
+
+	//console.log(properties)
+
+var options = {
+    chart: {
+      type: 'line'
+    },
+    series: [{
+      name: 'sales',
+      data: [30,40,35,50,49,60,70,91,125]
+    }],
+    xaxis: {
+      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+    }
+  }
+  
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render()
+//}
 function createDashboard(properties){
 
 	// clear dashboard
 	$('.dashboard').empty();
 
-
-	// chart title
-	let title = 'Racial Demographics ' + properties['Name'];
-	// data values
-	let data = [
-            properties['Hispanic'],
-            properties['White'],
-            properties['Black'],
-            properties['AIAN'],
-            properties['Asian'],
-            properties['NHOPI'],
-            properties['OtherRace'],
-            properties['TwoMore'],
-    ]
-    
-	
-	// data fields
-	let fields = [
-		'Hispanic Population',
-		'White Population',
-		'Black Population',
-		'American Indian and Alaskan Native Population ',
-		'Asian Population',
-        'Native Hawaiian and other Pacific Islander Population',
-        'Other Race Population',
-        'Two or more Race Population',
-	]
-
-	var options2 = {
-		chart: {
-			type: 'pie',
-			height: 300,
-			width: '100%',	
-			animations: {
-				enabled: false,
-			}
-		},
-		title: {
-			text: 'Water System Demographics ' + properties['name'],
-		},
-		series: data,
-		labels: fields,
-		legend: {
-			position: 'bottomright',
-			offsetY: 0,
-			height: 230,
-		  }
-	};
-
-	var chart = new ApexCharts(document.querySelector('#apexchart'), options2)
-	chart.render()
-  
-}
-// Creating dashboard
-function createNewDashboard(properties){
-
-	// clear dashboard
-	$('.popdash').empty();
-
 	console.log(properties)
+   // chart title
+   let title = 'Racial Demographics ' + properties['Name'];
+   // data values
+   let data = [
+           properties['Hispanic'],
+           properties['White'],
+           properties['Black'],
+           properties['AIAN'],
+           properties['Asian'],
+           properties['NHOPI'],
+           properties['OtherRace'],
+           properties['TwoMore'],
+   ]
+   // data fields
+   let fields = [
+       'Hispanic Population',
+       'White Population',
+       'Black Population',
+       'American Indian and Alaskan Native Population ',
+       'Asian Population',
+       'Native Hawaiian and other Pacific Islander Population',
+       'Other Race Population',
+       'Two or more Race Population',
+   ]
+   var options2= {
+       chart: {
+           type: 'pie',
+           height: 200,
+           width: '100%',  
+           animations: {
+               enabled: true,
+           }
+       },
+       title: {
+           
+       },
+       series: data,
+       labels: fields,
+       legend: {
+           position: 'bottomright',
+           offsetY: 0,
+           height: 230,
+         }
+   };
 
-	// chart title
-	let title = 'Racial Demographics ' + properties['name'];
-	// data values
-	let data = [
-            properties['Hispanic_Pop'],
-            properties['White_Pop'],
-            properties['Black_Pop'],
-            properties['AIAN_Pop'],
-            properties['Asian_Pop'],
-            properties['NHOPI_Pop'],
-            properties['OtherRace_Pop'],
-            properties['TwoMore_Pop'],
-    ]
-    
-	
-	// data fields
-	let fields = [
-		'Hispanic Population',
-		'White Population',
-		'Black Population',
-		'American Indian and Alaskan Native Population ',
-		'Asian Population',
-        'Native Hawaiian and other Pacific Islander Population',
-        'Other Race Population',
-        'Two or more Race Population',
-	]
-
-	// chart options
-	var options = {
-		chart: {
-			type: 'bar',
-			height: 300,
-			animations: {
-				enabled: false,
-			}
-		},
-		title: {
-			text: title
-		},
-		plotOptions: {
-			bar: {
-				horizontal: true
-			}
-		},
-		series: [
-			{
-				data: data
-			}
-		],
-		xaxis: {
-			categories: fields
-		}
-	}
-	
-	var options2 = {
-		chart: {
-			type: 'pie',
-			height: 300,
-			width: '100%',	
-			animations: {
-				enabled: false,
-			}
-		},
-		title: {
-			text: 'Water System Demographics ' + properties['name'],
-		},
-		series: data,
-		labels: fields,
-		legend: {
-			position: 'right',
-			offsetY: 0,
-			height: 230,
-		  }
-	};
-
-	var chart = new ApexCharts(document.querySelector('.popdash'), options)
-	chart.render()
-  
+   var chart = new ApexCharts(document.querySelector("#apexchart"), options2)
+   chart.render()
 }
-
-// Creating dashboard
-function createBillDashboard(properties){
-
-	// clear dashboard
-	$('.billdash').empty();
-
-	console.log(properties)   
-
-    var options = {
-        series: [{
-        name: 'Average Bill Cost',
-        data: [ properties ['WaterBill'], {
-          min: 10,
-          max: 120
-        }]
-      }],
-        chart: {
-        height: 350,
-        type: 'scatter',
-        zoom: {
-          enabled: true,
-          type: 'xy'
-        }
-      },
-      xaxis: {
-        tickAmount: 10,
-        labels: {
-          formatter: function(val) {
-            return parseFloat(val).toFixed(1)
-          }
-        }
-      },
-      yaxis: {
-        tickAmount: 7
-      },
-      title: {
-        text: 'Average Bill ' + properties['name']
-      }
-      };
-
-      var chart = new ApexCharts(document.querySelector(".billdash"), options);
-      chart.render();
   
-}
-
-// Creating dashboard
-function createBillInfoDashboard(properties){
-
-	// clear dashboard
-	$('.billinfodash').empty();
-
-	console.log(properties)
-
-	// chart options
-	var options = {
-		series: [
-            {
-              name: "basic",
-              data: [
-                  properties['POA'],
-                  properties['HMW'],
-              ]
-            }
-        ],
-        chart: {
-            type: "bar",
-            height: 350
-        },
-        plotOptions: {
-              bar: {
-              horizontal: true
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        xaxis: {
-            categories: [
-              "Percent of County-wide Average",
-              "Hours of Minimum Wage to Pay Bill"
-            ]
-        },
-        title: {
-			text: 'Bill Information ' + properties['name']
-		}
-	}
-
-	var chart = new ApexCharts(document.querySelector('.billinfodash'), options)
-	chart.render()
-  
-}
-
 function zoomTo(geoid){
 
 	let zoom2poly = geojson_layer.getLayers().filter(item => item.feature.properties.GEO_ID === geoid)
@@ -1596,8 +1440,15 @@ function myServeFunction(){
 function myGovTypeFunction(){
     mapGeoJSON('GovernanceCode',7,'Paired','jenks');}
 
+function myGovTypeFunctionSpanish(){
+        mapGeoJSON('SpanGovernanceCode',7,'Paired','jenks');}
+
 function myMechTypeFunction(){
     mapGeoJSON('MechanismCode',3,'Accent','equal interval');}
+
+function myMechTypeFunctionSpanish(){
+        mapGeoJSON('SpanMechanismCode',3,'Accent','equal interval');}
+    
 
 function myBillFunction(){
     mapGeoJSON('WaterBill',5,'YlOrRd','quantiles');}
