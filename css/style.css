@@ -54,7 +54,7 @@ body {
 }
 
 .sidebar-intro {
-    line-height: 2em;
+    line-height: 1em;
 	color: #444;
 	grid-area: sidebar;
     font-size: 12px;

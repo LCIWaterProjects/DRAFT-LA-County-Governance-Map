@@ -1077,11 +1077,11 @@ function createInfoPanel(){
         else if(fieldtomap == 'HMW'){
                  this._div.innerHTML =`<b>Water Bill Information</b>
                                     <p style="color:black;font-size:12px;"><br><b>${properties['Name']}</b>
-                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>
-                                    <p style="color:black;font-size:10px; text-align:left;"><br><b>Average Water Bill:</b> $${properties['WaterBill']}
+                                    <br><b>Average Water Bill:</b> $${properties['WaterBill']}
                                     <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in LA County.
-                                    <br>It takes working <b>${properties['HMW']} hours at minimum wage</b> to pay my water bill.
-                                    </p> `}  
+                                    <br>It takes <b>${properties['HMW']} hours of minimum wage</b> to pay my water bill.
+                                    </p> 
+                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>`}  
         else if(fieldtomap == 'NewSpanMerge_RIskScore'){
                 this._div.innerHTML =`<b>System Performance</b>
                                     <div><b>${properties['Name']}</b>
@@ -1100,16 +1100,18 @@ function createInfoPanel(){
                                     <br`}  
         else if(fieldtomap == 'Operator Below Required'){
                 this._div.innerHTML =`<b>System Performance</b>
-                <p style="color:black;font-size:10px;"><b>${properties['Name']}</b>
+                <p style="color:black;font-size:12px;line-height:1em;"><b>${properties['Name']}</b>
+                <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
+                <br><b>Risk Assessment</b>
+                <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
+                <br><b>Risk Score:</b> ${properties['RiskCode_SpanRiskScore']}
+                <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
                 <br><b>Water System Operators</b>
                 <br>Water System Operators are trained and certified to monitor system and treatment operations.  
                 <br><b>Required System Operator Level:</b> ${properties['NewSpanMerge_ReqOp']}
                 <br><b>Current System Operator Level:</b> ${properties['NewSpanMerge_HighestOp']}
-                <br><b>Water System Violations</b>:This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
-                <br><b>Risk Assessment</b>
-                <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
-                <br><b>Risk Score:</b> ${properties['NewSpanMerge_RIskScore']}
-                <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
+                <br>This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
+                
                 </p>`}   
         else if(fieldtomap == 'No Operator'){
                 this._div.innerHTML =`<b>System Performance</b>
