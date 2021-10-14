@@ -35,6 +35,9 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/>
     <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/bundle.min.js"></script>
 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </head>
 <body>
 
@@ -43,17 +46,34 @@
 		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="300px">
 	</div>
 	<div class="sidebar">
+		<div class = 'sidebar-intro'>
+			<h3>Water System Data</h3>
+		Click a button below to display
+			<br>data on the map. Then learn more
+		<br>about a water system by clicking on
+			<br>the system on the map.
+			<br>()
+		<h3>Finding Your Water System</h3>
+			You can find your water system by 
+			<br>searching for an address by
+			<br>clicking on the magnifying glass 
+			<br>on the map. 
+		
+
+
+		</div>
 		<div class="sidebar-content">
-			<p>Insert brief description on map and data and instructions on how to use the map
 			<p><b>Water System Governance</b>	
-			<br><button onclick='myGovTypeFunction()'>Governance Type</button>
+			<br><button onclick='myGovTypeFunction()'>Governance Types</button>
 			<br><button onclick='myMechTypeFunction()'>How is Leadership Chosen?</button>
-			<br><button onclick='myPopFunction()'>Population</button>
-			<br><button onclick='myServeFunction()'>Service Connections</button>
+			<br><button onclick='myPopFunction()'>Water System Population</button>
+			<br><button onclick='myServeFunction()'>Water System Service Connections</button>
 			<br><b>Water Bill</b>
-			<br><button onclick='myBillFunction()'>Water Bill</button>
-			<br><button onclick='MinWageFunction()'>Hours at Minimum Wage</button>
+			<br><button onclick='myBillFunction()'>Average Water Bill</button>
+			<br><button onclick='MinWageFunction()'>How Many Hours at Minimum Wage Do I Need to Work to Afford my Water Bi</button>
 			<br><b>Water System Performance</b>
+			<br><button onclick='RiskFunction()'>Needs Assessment Risk Score</button>
+			<br><button onclick='MCLFunction()'>Number of violations in past 5 years</button>
 			<br><button onclick='myOpBelowFunction()'>Operator Below Certification</button>
 			<br><button onclick='myNoOpFunction()'>No Operator</button>
 			 <br>Other performance buttons? 

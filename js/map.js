@@ -4,7 +4,7 @@ let lat = 34;
 let lon = -118;
 let zl = 9;
 
-let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/SpanishPrep.geojson';
+let geojsonPath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/RiskCode.geojson';
 let geojson_data;
 let geojson_layer;
 let lacountypath = 'https://raw.githubusercontent.com/LCIWaterProjects/DRAFT-LA-County-Governance-Map/main/data/LA%20County%20Projected.geojson'
@@ -48,8 +48,6 @@ function createMap(lat,lon,zl){
         });
       
         map.addControl(searchControl);
-
-
 }
 
 // function to get the geojson data
@@ -138,7 +136,7 @@ function getStyle(feature){
                               
         }
      }
-    else if(fieldtomap == 'MechanismCode'){
+     else if(fieldtomap == 'MechanismCode'){
         return {
             stroke: true,
             color: 'white',
@@ -150,9 +148,9 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 3  ? '#5B8E7D' :
-                   d == 2  ? '#F4E285' :
-                   d == 1  ? '#F4A259':
+            return d == 3  ? '#CECfC7' :
+                   d == 2  ? '#F3A712' :
+                   d == 1  ? '#E4572E':
                                 '#8CB369';
                               
         }
@@ -216,7 +214,7 @@ function getStyle(feature){
                     d > 57 ? '#D71D24' :
                     d > 38  ? '#E74B51':
                     d > 0 ? '#EE8185':
-                                 '#F5B7B9';
+                                 '#CECFC7';
                               
         }
     }
@@ -243,6 +241,26 @@ function getStyle(feature){
                          '#D9ED92';
         }
     }
+    else if(fieldtomap == 'RiskCode_RiskCode'){
+        return {
+            stroke: true,
+            color: 'white',
+            weight: 1,
+            fill: true,
+            fillColor: getColor(feature.properties[fieldtomap]),
+            fillOpacity: 0.8
+        }
+
+        function getColor(d) {
+
+            return  d == 0 ? '#cec5c7' :
+            d == 1  ? '#20bf55' :
+            d == 2 ? '#f9c846':
+            d == 3 ? '#f96900':
+            d == 4 ? '#e3170a':
+                         '#412722';
+        }
+    }
     else if(fieldtomap == 'Operator Below Required'){
         return {
             stroke: true,
@@ -277,170 +295,7 @@ function getStyle(feature){
                          '#412722';
         }
     }
- if(fieldtomap == 'GovernanceCode'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return d == 9  ? '#cab2d6' :
-                   d == 8  ? '#ff7f00' :
-                   d == 7  ? '#fdbf6f' :
-                   d == 6  ? '#e31a1c' :
-                   d == 5  ? '#fb9a99' :
-                   d == 4  ? '#33a02c' :
-                   d == 3  ? '#b2df8a' :
-                   d == 2  ? '#1f78b4' :
-                   d == 1  ? '#a6cee3':
-                                '#412722';
-                              
-        }
-     }
-    else if(fieldtomap == 'MechanismCode'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return d == 3  ? '#5B8E7D' :
-                   d == 2  ? '#F4A259' :
-                   d == 1  ? '#F4E285' :
-                                '#8CB369';
-                              
-        }
-    }
-    else if(fieldtomap == 'Population'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 476000  ? '#E37F78' :
-                    d > 270000  ? '#DC5F56' :
-                    d > 115000  ? '#D53F34' :
-                    d > 70000  ? '#BA3026' :
-                    d > 35000  ? '#98271F':
-                                 '#771F18';
-                              
-        }
-    }
-    else if(fieldtomap == 'Service_Co'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 100000 ? '#33a02c' :
-                    d > 30000  ? '#b2df8a' :
-                    d > 10000 ? '#1f78b4' :
-                    d > 3300 ? '#fb9a99' :
-                    d > 500  ? '#a6cee3':
-                                 '#412722';
-                              
-        }
-    }
-    else if(fieldtomap == 'WaterBill'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 90  ? '#b2df8a' :
-                    d > 72 ? '#1f78b4' :
-                    d > 57 ? '#fb9a99' :
-                    d > 38  ? '#a6cee3':
-                    d > 0 ? '#cab2d6':
-                                 '#412722';
-                              
-        }
-    }
-    else if(fieldtomap == 'HMW'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 8  ? '#cab2d6' :
-            d == 7  ? '#ff7f00' :
-            d == 6  ? '#fdbf6f' :
-            d == 5  ? '#e31a1c' :
-            d == 4  ? '#fb9a99' :
-            d == 3  ? '#33a02c' :
-            d == 2  ? '#b2df8a' :
-            d == 1  ? '#1f78b4' :
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'Operator Below Required'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'No operator'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
-                         '#412722';
-        }
-    }
+ 
     //Coding for Spanish Data 
     if(fieldtomap == 'GovernanceCode'){
         return {
@@ -479,9 +334,9 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 3  ? '#5B8E7D' :
-                   d == 2  ? '#F4A259' :
-                   d == 1  ? '#F4E285':
+            return d == 3  ? '#CECfC7' :
+                   d == 2  ? '#F3A712' :
+                   d == 1  ? '#E4572E':
                                 '#8CB369';
                               
         }
@@ -572,6 +427,26 @@ function getStyle(feature){
                          '#412722';
         }
     }
+    else if(fieldtomap == 'RiskCode_RiskCode'){
+        return {
+            stroke: true,
+            color: 'white',
+            weight: 1,
+            fill: true,
+            fillColor: getColor(feature.properties[fieldtomap]),
+            fillOpacity: 0.8
+        }
+
+        function getColor(d) {
+
+            return  d == 0 ? '#cec5c7' :
+            d == 1  ? '#20bf55' :
+            d == 2 ? '#f9c846':
+            d == 3 ? '#f96900':
+            d == 4 ? '#e3170a':
+                         '#412722';
+        }
+    }
     else if(fieldtomap == 'Operator Below Required'){
         return {
             stroke: true,
@@ -604,6 +479,25 @@ function getStyle(feature){
             return  d == 1 ? '#cab2d6' :
                     d == 0  ? '#ff7f00' :
                          '#412722';
+        }
+    }
+    else if(fieldtomap == 'RiskCode_FiveMCL'){
+        return {
+            stroke: true,
+            color: 'white',
+            weight: 1,
+            fill: true,
+            fillColor: getColor(feature.properties[fieldtomap]),
+            fillOpacity: 0.8
+        }
+
+        function getColor(d) {
+
+            return  d == 0 ? '#e31a1c' :
+            d == 1  ? '#8BG35C' :
+            d > 1 ? '#EA8C55':
+            d > 5 ? '#0B1D51':
+                         '#CECFC7';
         }
     }
    //Coding for Spanish Data  
@@ -813,9 +707,9 @@ function createLegend(){
         else if(fieldtomap == 'MechanismCode'){
             div.innerHTML =
             '<b>How Is Leadership Chosen?</b><br>'+
-            '<div style="background-color: #5B8E7D"></div>Election<br>'+
-            '<div style="background-color: #F4E285"></div>Appointment<br>'+
-            '<div style="background-color: #F4A259"></div>No Data<br>'
+            '<div style="background-color: #E4572E"></div>Election<br>'+
+            '<div style="background-color: #F3A712"></div>Appointment<br>'+
+            '<div style="background-color: #CECFC7"></div>No Data<br>'
             return div;
             console.log('mapping mechanism code')
 
@@ -856,13 +750,13 @@ function createLegend(){
         }
         else if(fieldtomap == 'WaterBill'){
             div.innerHTML =
-            '<b>Average Household Water Bill</b><br>'+
+            '<b>Average Water<br> Bill</b><br>'+
             '<div style="background-color: #F5B7B9"></div>$0 - $38<br>'+
             '<div style="background-color: #EE8185"></div>$38 -$57<br>'+
             '<div style="background-color: #E74B51"></div>$57 - $72<br>'+
             '<div style="background-color: #D71D24"></div>$72 - $90<br>'+
             '<div style="background-color: #A4161A"></div>Over $90<br>'+
-            '<div style="background-color: #6C0F12"></div>No Rate Data<br>'
+            '<div style="background-color: #CECFC7"></div>No Data<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -872,7 +766,7 @@ function createLegend(){
         }
         else if(fieldtomap == 'HMW'){
             div.innerHTML =
-            '<b>Hours At Minimum Wage</b><br>'+
+            '<b>Minimum Wage Hours</b><br>'+
             '<div style="background-color: #D9ED92"></div>1 Hour<br>' +
             '<div style="background-color: #B5E48C"></div>2 Hours<br>' +
             '<div style="background-color: #99D98C"></div>3 Hours<br>'+
@@ -882,6 +776,23 @@ function createLegend(){
             '<div style="background-color: #168AAD"></div>7 Hours<br>'+
             '<div style="background-color: #1A759F"></div>8 Hours<br>'+
             '<div style="background-color: #1E6091"></div>No Data<br>'
+
+
+            return div;
+            console.log('mapping mechanism code')
+
+
+
+        }
+        else if(fieldtomap == 'RiskCode_RiskCode'){
+            div.innerHTML =
+            '<b>Risk Score</b><br>'+
+            '<div style="background-color: #CECFC7"></div>Not In Risk Assessment<br>' +
+            '<div style="background-color: #20BF55"></div>Not At-Risk<br>' +
+            '<div style="background-color: #F9C846"></div>Potentially At-Risk<br>' +
+            '<div style="background-color: #F96900"></div>At-Risk<br>' +
+            '<div style="background-color: #E3170A"></div>Failing<br>' 
+            
 
 
             return div;
@@ -909,6 +820,23 @@ function createLegend(){
             '<b>Does my water system have an operator</b><br>'+
             '<div style="background-color: #FA0F36"></div>Yes<br>' +
             '<div style="background-color: #ABB4C4"></div>No<br>' 
+            
+
+
+            return div;
+            console.log('mapping mechanism code')
+
+
+
+        }
+        else if(fieldtomap == 'RiskCode_FiveMCL'){
+            div.innerHTML =
+            '<b>Number of Water Violations</b><br>'+
+            '<div style="background-color: #e31a1c"></div>No Violations<br>' +
+            '<div style="background-color: #1f78b4"></div>1<br>' +
+            '<div style="background-color: #EA8C55"></div>2-5<br>' +
+            '<div style="background-color: #b2df8a"></div>5 or More<br>' +
+            '<div style="background-color: #fdbf6f"></div>No Data <br>' 
             
 
 
@@ -982,7 +910,7 @@ function createLegend(){
         }
         else if(fieldtomap == 'SpanWaterBill'){
             div.innerHTML =
-            '<b>Average Household Water Bill</b>'+
+            '<b>Average<br> Water Bill</b>'+
             '<div style="background-color: #8da0cb"></div>$0 - $38<br>'+
             '<div style="background-color: #8da0cb"></div>$38 -$57<br>'+
             '<div style="background-color: #8da0cb"></div>$57 - $72<br>'+
@@ -998,7 +926,7 @@ function createLegend(){
         }
         else if(fieldtomap == 'SpanHMW'){
             div.innerHTML =
-            '<b>Hours At Minimum Wage</b>'+
+            '<b>Minimum Wage Hours</b>'+
             '<div style="background-color: #a6cee3"></div>1 Hour<br>' +
             '<div style="background-color: #1f78b4"></div>2 Hours<br>' +
             '<div style="background-color: #b2df8a"></div>3 Hours<br>'+
@@ -1086,17 +1014,15 @@ function createInfoPanel(){
             this._div.innerHTML =`<br><b> ${properties['Name']}</b>`
             if(fieldtomap == 'GovernanceCode'){
             this._div.innerHTML =`<b>Governance Information</b>
-            <div><b>${properties['Name']}</b>
+            <p style="color:black;font-size:10px;"><br><b>${properties['Name']}</b>
             <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
             <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
             <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
-            <br>Table with appointed members and compensation
-            <br>Participation Info here? 
             <br><b>Service Connections</b> ${properties['Service_Co']}
             <br><b>System Population:</b> ${properties['Population']}
             <br><div id="apexchart">
-            </div>
+            </div></p>
             
             ` 
             }    
@@ -1111,7 +1037,7 @@ function createInfoPanel(){
             <br>Participation Info here? 
             <br><b>Service Connections</b> ${properties['Service_Co']}
             <br><b>System Population:</b> ${properties['Population']}
-            <br> Insert Population Chart here?
+            <br><div id="apexchart">
             <br`}    
             else if(fieldtomap == 'Population'){
                 this._div.innerHTML = `<b>Governance Information</b>
@@ -1124,7 +1050,7 @@ function createInfoPanel(){
                 <br>Participation Info here? 
                 <br><b>Service Connections</b> ${properties['Service_Co']}
                 <br><b>System Population:</b> ${properties['Population']}
-                <br> Insert Population Chart here?
+                <br><div id="apexchart">
                 <br`}    
 
        else if(fieldtomap == 'Service_Co'){
@@ -1138,35 +1064,53 @@ function createInfoPanel(){
                                         <br>Participation Info here? 
                                         <br><b>Service Connections</b> ${properties['Service_Co']}
                                         <br><b>System Population:</b> ${properties['Population']}
-                                        <br> Insert Population Chart here?
+                                        <br><div id="apexchart">
                                         <br`}    
         else if(fieldtomap == 'WaterBill'){
                 this._div.innerHTML = `<b>Water Bill Information</b>
-                                    <br>Couple sentences about how we calculate average water bill and what that means. 
-                                    <div><b>${properties['Name']}</b>
-                                    <br><b>Average Water Bill:</b> $${properties['WaterBill']}
-                                    <br>My water bill is <b>${properties['AbsFromAvg']}% ${properties['OU']}</b> than average bill in LA County
+                                    <p style="color:black;font-size:12px;"><br><b>${properties['Name']}</b>
+                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>
+                                    <p style="color:black;font-size:10px; text-align:left;"><br><b>Average Water Bill:</b> $${properties['WaterBill']}
+                                    <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in LA County.
                                     <br>It takes working <b>${properties['HMW']} hours at minimum wage</b> to pay my water bill.
-                                     <br`}     
+                                    </p> `}     
         else if(fieldtomap == 'HMW'){
                  this._div.innerHTML =`<b>Water Bill Information</b>
-                                        <br>Couple sentences about how we calculate average water bill and what that means. 
-                                        <div><b>${properties['Name']}</b>
-                                        <br><b>Average Water Bill:</b> $${properties['WaterBill']}
-                                        <br>My water bill is <b>${properties['AbsFromAvg']}% ${properties['OU']}</b> than average bill in LA County
-                                        <br>It takes working <b>${properties['HMW']} hours at minimum wage</b> to pay my water bill.
-                                        <br`}  
+                                    <p style="color:black;font-size:12px;"><br><b>${properties['Name']}</b>
+                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>
+                                    <p style="color:black;font-size:10px; text-align:left;"><br><b>Average Water Bill:</b> $${properties['WaterBill']}
+                                    <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in LA County.
+                                    <br>It takes working <b>${properties['HMW']} hours at minimum wage</b> to pay my water bill.
+                                    </p> `}  
+        else if(fieldtomap == 'NewSpanMerge_RIskScore'){
+                this._div.innerHTML =`<b>System Performance</b>
+                                    <div><b>${properties['Name']}</b>
+                                    <b>Water System Operators</b>
+                                    <br>Water System Operators are trained and certified to monitor system and treatment operations.  
+                                    <br>Required System Operator Level: ${properties['NewSpanMerge_ReqOp']}
+                                    <br>Current System Operator Level: ${properties['NewSpanMerge_HighestOp']}
+                                    <b>Water System Violations</b>
+                                    <br>Between 2014-2018 this system had ${properties['NewSpanMerge_FiveMCL']} health violations
+                                    <b>Risk Score</b>
+                                    <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
+                                    <br>Risk Score: ${properties['NewSpanMerge_RIskScore']}
+                                    <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
+                                    <br>DO we want to add NA or LA NA Risk scores here?
+                                    <br>Perhaps adding an MCL variable to the map (button and here)
+                                    <br`}  
         else if(fieldtomap == 'Operator Below Required'){
                 this._div.innerHTML =`<b>System Performance</b>
-                                            <br>Describe system performance here
-                                            <div><b>${properties['Name']}</b>
-                                            <br>link to CCR report? 
-                                            <br>Required System Operator Level 
-                                            <br>Does my system have an operator?
-                                            <br>Does my system have the required operator level? 
-                                            <br>DO we want to add NA or LA NA Risk scores here?
-                                            <br>Perhaps adding an MCL variable to the map (button and here)
-                                            <br`}  
+                <p style="color:black;font-size:10px;"><b>${properties['Name']}</b>
+                <br><b>Water System Operators</b>
+                <br>Water System Operators are trained and certified to monitor system and treatment operations.  
+                <br><b>Required System Operator Level:</b> ${properties['NewSpanMerge_ReqOp']}
+                <br><b>Current System Operator Level:</b> ${properties['NewSpanMerge_HighestOp']}
+                <br><b>Water System Violations</b>:This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
+                <br><b>Risk Assessment</b>
+                <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
+                <br><b>Risk Score:</b> ${properties['NewSpanMerge_RIskScore']}
+                <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
+                </p>`}   
         else if(fieldtomap == 'No Operator'){
                 this._div.innerHTML =`<b>System Performance</b>
                                             <br>Describe system performance here
@@ -1315,7 +1259,8 @@ function onEachFeature(feature, layer) {
 
 // on mouse over, highlight the feature
 function highlightFeature(e) {
-    resetHighlight(e)
+    //resetHighlight(e)
+    geojson_layer.resetStyle()
   
     var layer = e.target;
 
@@ -1353,28 +1298,106 @@ function zoomToFeature(e) {
 
 	//console.log(properties)
 
-var options = {
-    chart: {
-      type: 'line'
-    },
-    series: [{
-      name: 'sales',
-      data: [30,40,35,50,49,60,70,91,125]
-    }],
-    xaxis: {
-      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-    }
-  }
+// var options = {
+//     chart: {
+//       type: 'line'
+//     },
+//     series: [{
+//       name: 'sales',
+//       data: [30,40,35,50,49,60,70,91,125]
+//     }],
+//     xaxis: {
+//       categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+//     }
+//   }
   
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render()
-//}
+//   var chart = new ApexCharts(document.querySelector("#chart"), options);
+//   chart.render()
+// //}
 function createDashboard(properties){
 
 	// clear dashboard
 	$('.dashboard').empty();
 
 	console.log(properties)
+
+    // var options = {
+    //     series: [
+    //                    properties['Hispanic'],
+    //                    properties['White'],
+    //                    properties['Black'],
+    //                    properties['Asian'],
+    //                    properties['AIAN'],
+    //                    properties['NHOPI'],
+    //                    properties['Other'],
+                       
+    //            ],
+    //     chart: {
+    //     height: 250,
+    //     type: 'radialBar',
+    //   },
+    //   plotOptions: {
+    //     radialBar: {
+    //       offsetY: 0,
+    //       offsetX: 50,
+    //       startAngle: 0,
+    //       endAngle: 270,
+    //       hollow: {
+    //         margin: 5,
+    //         size: '30%',
+    //         background: 'transparent',
+    //         image: undefined,
+    //       },
+    //       dataLabels: {
+    //         name: {
+    //           show: false,
+    //         },
+    //         value: {
+    //           show: false,
+    //         }
+    //       }
+    //     }
+    //   },
+    //   colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#39539E','#0077B5','#0077B5'],
+    //   labels: ['Hispanic', 'White', 'Black', 'Asian','American Indian','Native Hawaiin or<br>Pacific Islander','Other',],
+    //   legend: {
+    //     show: true,
+        
+    //     floating: true,
+    //     fontSize: '10px',
+    //     position: 'left',
+    //     offsetX: 1,
+    //     offsetY: 1,
+    //     labels: {
+    //       useSeriesColors: true,
+    //     },
+    //     markers: {
+    //       size: 0
+    //     },
+    //     formatter: function(seriesName, opts) {
+    //       return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+    //     },
+    //     itemMargin: {
+    //       vertical: 0,
+    //       position: 'left', 
+    //     }
+    //   },
+    //   responsive: [{
+    //     breakpoint: 480,
+    //     options: {
+    //       legend: {
+    //           show: true
+    //       }
+    //     }
+    //   }]
+    //   };
+
+    //   var chart = new ApexCharts(document.querySelector("#apexradial"), options);
+    //   chart.render();
+    
+    
+
+    
    // chart title
    let title = 'Racial Demographics ' + properties['Name'];
    // data values
@@ -1382,42 +1405,85 @@ function createDashboard(properties){
            properties['Hispanic'],
            properties['White'],
            properties['Black'],
-           properties['AIAN'],
            properties['Asian'],
+           properties['AIAN'],
            properties['NHOPI'],
-           properties['OtherRace'],
-           properties['TwoMore'],
+           properties['Other'],
+           properties['TwoOrMore'],
    ]
    // data fields
    let fields = [
-       'Hispanic Population',
-       'White Population',
-       'Black Population',
-       'American Indian and Alaskan Native Population ',
-       'Asian Population',
-       'Native Hawaiian and other Pacific Islander Population',
-       'Other Race Population',
-       'Two or more Race Population',
+       'Hispanic',
+       'White',
+       'Black',
+       'Asian',
+       'American Indian and Alaskan Native',
+       'Native Hawaiian and other Pacific Islander',
+       'Other Race',
+       'Two or more Race',
    ]
+console.log(data)
+
+
    var options2= {
        chart: {
            type: 'pie',
+           plotOptions: {
+                radialBar: {
+                  offsetY: 100,
+                  offsetX: 50,
+                  startAngle: 0,
+                  endAngle: 270,
+                  hollow: {
+                    margin: 5,
+                    size: '30%',
+                    background: 'transparent',
+                    image: undefined,
+                  },
+                  dataLabels: {
+                    name: {
+                      show: false,
+                    },
+                    value: {
+                      show: false,
+                    }
+                  }
+                }
+              },
            height: 200,
            width: '100%',  
            animations: {
                enabled: true,
-           }
-       },
-       title: {
+           },
+
            
        },
+       title: {  },
+       colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#39539E','#0077B5','#0077B5'],
        series: data,
        labels: fields,
        legend: {
-           position: 'bottomright',
-           offsetY: 0,
-           height: 230,
-         }
+        show: false,
+        floating: true,
+        fontSize: '10px',
+        position: 'left',
+        offsetX: 50,
+        offsetY: 1,
+        labels: {
+          useSeriesColors: true,
+          position: 'center',
+        },
+        markers: {
+          size: 0
+        },
+        formatter: function(seriesName, opts) {
+          return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+        },
+        itemMargin: {
+          vertical: 0,
+          position: 'center', 
+        }
+      },
    };
 
    var chart = new ApexCharts(document.querySelector("#apexchart"), options2)
@@ -1461,3 +1527,16 @@ function myOpBelowFunction(){
 
 function myNoOpFunction(){
     mapGeoJSON('No operator',5,'Accent','natural breaks');}
+
+function RiskFunction(){
+        mapGeoJSON('RiskCode_RiskCode',5,'Accent','natural breaks');}
+
+function SpanRiskFunction(){
+            mapGeoJSON('No operator',5,'Accent','natural breaks');}
+
+function MCLFunction(){
+                mapGeoJSON('RiskCode_FiveMCL',5,'Accent','natural breaks');}
+function SpanMCLFunction(){
+                    mapGeoJSON('NewSpanMerge_FiveMCL',5,'Accent','natural breaks');}
+
+    
