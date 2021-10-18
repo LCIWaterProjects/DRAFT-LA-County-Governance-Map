@@ -1318,7 +1318,7 @@ console.log(data)
            }, 
        },
        title: {},
-       colors: ['#FF9538', '#FFE354', '#EA73B8', '#A246A2', '#433178','#CC2936','#08415C'],
+       colors: ['#005687', '#457e9c', '#789dac', '#9bb1b7', '#bdc5c2','#003654','#002535'],
        series: data,
        labels: fields,
        legend: {
