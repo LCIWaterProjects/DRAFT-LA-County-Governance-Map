@@ -938,7 +938,7 @@ function createInfoPanel(){
                 </p>`}  
         else if(fieldtomap == 'RiskCode_FiveMCL'){
                 this._div.innerHTML =
-                                    `<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                                    `<p style="color:black;font-size:14px;line-height:1.5em;"><b>System Performance</b>
                                     <br><b>${properties['Name']}</b>
                                     <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
                                     <br><b>Risk Assessment</b>
@@ -954,7 +954,7 @@ function createInfoPanel(){
                                     </p>`}   
         else if(fieldtomap == 'Operator Below Required'){
                 this._div.innerHTML =
-                `<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                `<p style="color:black;font-size:14px;line-height:1.5em;"><b>System Performance</b>
                 <br><b>${properties['Name']}</b>
                 <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
                 <br><b>Risk Assessment</b>
@@ -969,7 +969,7 @@ function createInfoPanel(){
                 
                 </p>`}   
         else if(fieldtomap == 'No operator'){
-                this._div.innerHTML =`<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                this._div.innerHTML =`<p style="color:black;font-size:14px;line-height:1.5em;"><b>System Performance</b>
                 <br><b>${properties['Name']}</b>
                 <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
                 <br><b>Risk Assessment</b>
@@ -1372,8 +1372,7 @@ function myMechTypeFunction(){
     mapGeoJSON('MechanismCode',3,'Accent','equal interval');}
 
 function myMechTypeFunctionSpanish(){
-        mapGeoJSON('SpanMechanismCode',3,'Accent','equal interval');}
-    
+      mapGeoJSON('SpanMechanismCode',3,'Accent','equal interval');}
 
 function myBillFunction(){
     mapGeoJSON('WaterBill',5,'YlOrRd','quantiles');}
@@ -1392,7 +1391,6 @@ function RiskFunction(){
 
 function SpanRiskFunction(){
             mapGeoJSON('No operator',5,'Accent','natural breaks');}
-
 function MCLFunction(){
                 mapGeoJSON('RiskCode_FiveMCL',5,'Accent','natural breaks');}
 function SpanMCLFunction(){
