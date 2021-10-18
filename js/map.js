@@ -123,15 +123,15 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return d == 9  ? '#8264AF' :
-                   d == 8  ? '#5B769A' :
-                   d == 7  ? '#008EE0' :
-                   d == 6  ? '#83BAD8' :
-                   d == 5  ? '#798F42' :
-                   d == 4  ? '#B3C383' :
-                   d == 3  ? '#FFE15C' :
-                   d == 2  ? '#F2A202' :
-                   d == 1  ? '#B75615':
+            return d == 9  ? '#272727' :
+                   d == 8  ? '#C47335 ' :
+                   d == 7  ? '#1AC8ED' : 
+                   d == 6  ? '#F46036 ' :
+                   d == 5  ? '#109648 ' :
+                   d == 4  ? '#51344D' :
+                   d == 3  ? '#FED18C' :
+                   d == 2  ? '#5BC8AF ' :
+                   d == 1  ? '#6C91BF':
                                 '#5B769A';
                               
         }
@@ -230,15 +230,15 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d == 8  ? '#1E6091' :
-            d == 7  ? '#1A759F' :
-            d == 6  ? '#168AAD' :
-            d == 5  ? '#34A0A4' :
-            d == 4  ? '#52B69A' :
-            d == 3  ? '#76C893' :
-            d == 2  ? '#99D98C' :
-            d == 1  ? '#B5E48C' :
-                         '#D9ED92';
+            return  d > 7  ? '#0000ff' :
+            d > 6  ? '#0055ff' :
+            d > 5  ? '#0080ff' :
+            d > 4  ? '#00aaff' :
+            d > 3  ? '#00ffff' :
+            d > 2  ? '#00ffaa' :
+            d > 1 ? '#00ff55' :
+            d > 0  ? '#00ff00' :
+                         '#CECFC7';
         }
     }
     else if(fieldtomap == 'RiskCode_RiskCode'){
@@ -253,12 +253,34 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d == 0 ? '#cec5c7' :
+            return  d == 0 ? '#cecfc7' :
             d == 1  ? '#20bf55' :
             d == 2 ? '#f9c846':
             d == 3 ? '#f96900':
             d == 4 ? '#e3170a':
                          '#412722';
+        }
+    }
+    else if(fieldtomap == 'RiskCode_FiveMCL'){
+        return {
+            stroke: true,
+            color: 'white',
+            weight: 1,
+            fill: true,
+            fillColor: getColor(feature.properties[fieldtomap]),
+            fillOpacity: 0.8
+        }
+
+        function getColor(d) {
+
+            return  d == 0 ? '#b4dce4' :
+            d == 1  ? '#1f78b4' :
+            d == 2 ? '#f96900':
+            d == 3 ? '#f96900':
+            d == 4 ? '#f96900':
+            d == 5 ? '#e3170a':
+            d > 5 ? '#e3170a':
+                         '#CECFC7';
         }
     }
     else if(fieldtomap == 'Operator Below Required'){
@@ -296,210 +318,7 @@ function getStyle(feature){
         }
     }
  
-    //Coding for Spanish Data 
-    if(fieldtomap == 'GovernanceCode'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return d == 9  ? '#cab2d6' :
-                   d == 8  ? '#ff7f00' :
-                   d == 7  ? '#fdbf6f' :
-                   d == 6  ? '#e31a1c' :
-                   d == 5  ? '#fb9a99' :
-                   d == 4  ? '#33a02c' :
-                   d == 3  ? '#b2df8a' :
-                   d == 2  ? '#1f78b4' :
-                   d == 1  ? '#a6cee3':
-                                '#412722';
-                              
-        }
-     }
-    else if(fieldtomap == 'MechanismCode'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return d == 3  ? '#CECfC7' :
-                   d == 2  ? '#F3A712' :
-                   d == 1  ? '#E4572E':
-                                '#8CB369';
-                              
-        }
-    }
-    else if(fieldtomap == 'Population'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 476000  ? '#33a02c' :
-                    d > 270000  ? '#b2df8a' :
-                    d > 115000  ? '#1f78b4' :
-                    d > 70000  ? '#fb9a99' :
-                    d > 35000  ? '#a6cee3':
-                                 '#412722';
-                              
-        }
-    }
-    else if(fieldtomap == 'Service_Co'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 100000 ? '#33a02c' :
-                    d > 30000  ? '#b2df8a' :
-                    d > 10000 ? '#1f78b4' :
-                    d > 3300 ? '#fb9a99' :
-                    d > 500  ? '#a6cee3':
-                                 '#412722';
-                              
-        }
-    }
-    else if(fieldtomap == 'WaterBill'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d > 90  ? '#b2df8a' :
-                    d > 72 ? '#1f78b4' :
-                    d > 57 ? '#fb9a99' :
-                    d > 38  ? '#a6cee3':
-                    d > 0 ? '#cab2d6':
-                                 '#412722';
-                              
-        }
-    }
-    else if(fieldtomap == 'HMW'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 8  ? '#cab2d6' :
-            d == 7  ? '#ff7f00' :
-            d == 6  ? '#fdbf6f' :
-            d == 5  ? '#e31a1c' :
-            d == 4  ? '#fb9a99' :
-            d == 3  ? '#33a02c' :
-            d == 2  ? '#b2df8a' :
-            d == 1  ? '#1f78b4' :
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'RiskCode_RiskCode'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 0 ? '#cec5c7' :
-            d == 1  ? '#20bf55' :
-            d == 2 ? '#f9c846':
-            d == 3 ? '#f96900':
-            d == 4 ? '#e3170a':
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'Operator Below Required'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 1 ? '#cab2d6' :
-            d == 0  ? '#ff7f00' :
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'No operator'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 1 ? '#cab2d6' :
-                    d == 0  ? '#ff7f00' :
-                         '#412722';
-        }
-    }
-    else if(fieldtomap == 'RiskCode_FiveMCL'){
-        return {
-            stroke: true,
-            color: 'white',
-            weight: 1,
-            fill: true,
-            fillColor: getColor(feature.properties[fieldtomap]),
-            fillOpacity: 0.8
-        }
-
-        function getColor(d) {
-
-            return  d == 0 ? '#e31a1c' :
-            d == 1  ? '#8BG35C' :
-            d > 1 ? '#EA8C55':
-            d > 5 ? '#0B1D51':
-                         '#CECFC7';
-        }
-    }
+    
    //Coding for Spanish Data  
  if(fieldtomap == 'SpanGovernanceCode'){
         return {
@@ -691,15 +510,15 @@ function createLegend(){
         if(fieldtomap == 'GovernanceCode'){
             div.innerHTML =
             '<b>Water System <br>Governance Type</b><br>'+
-            '<div style="background-color: #B75615"></div>City/Municpal<br>' +
-            '<div style="background-color: #F2A202"></div>County<br>' +
-            '<div style="background-color: #FFE15C"></div>Mutual Water Company<br>'+
-            '<div style="background-color: #B3C383"></div>Investor Owned Utility<br>' +
-            '<div style="background-color: #798F42"></div>Special District<br>' +
-            '<div style="background-color: #83BAD8"></div>Mobile Home<br>' +
-            '<div style="background-color: #008EE0"></div>Irrigation District<br>'+
-            '<div style="background-color: #5B769A"></div>Other Private<br>'+
-            '<div style="background-color: #8264AF"></div>Unknown<br>'
+            '<div style="background-color: #6C91BF"></div>City/Municpal<br>' +
+            '<div style="background-color: #5BC8AF"></div>County<br>' +
+            '<div style="background-color: #51344D"></div>Investor Owned Utility<br>' +
+            '<div style="background-color: #FED18C"></div>Mutual Water Company<br>'+
+            '<div style="background-color: #109648"></div>Special District<br>' +
+            '<div style="background-color: #F46036"></div>Mobile Home<br>' +
+            '<div style="background-color: #1AC8ED"></div>Irrigation District<br>'+
+            '<div style="background-color: #C47335"></div>Other Private<br>'+
+            '<div style="background-color: #272727"></div>Unknown<br>'
             return div;
             
     
@@ -766,16 +585,17 @@ function createLegend(){
         }
         else if(fieldtomap == 'HMW'){
             div.innerHTML =
-            '<b>Minimum Wage Hours</b><br>'+
-            '<div style="background-color: #D9ED92"></div>1 Hour<br>' +
-            '<div style="background-color: #B5E48C"></div>2 Hours<br>' +
-            '<div style="background-color: #99D98C"></div>3 Hours<br>'+
-            '<div style="background-color: #76C893"></div>4 Hours<br>' +
-            '<div style="background-color: #52B69A"></div>5 Hours<br>' +
-            '<div style="background-color: #34A0A4"></div>6 Hours<br>' +
-            '<div style="background-color: #168AAD"></div>7 Hours<br>'+
-            '<div style="background-color: #1A759F"></div>8 Hours<br>'+
-            '<div style="background-color: #1E6091"></div>No Data<br>'
+            '<b>Minimum Wage<br>Hours</b>'+
+            '<br><div style="background-color: #CECFC7"></div>No Data<br>'+
+            '<div style="background-color: #00ff00"></div>1 Hour<br>' +
+            '<div style="background-color: #00ff55"></div>2 Hours<br>' +
+            '<div style="background-color: #00ffaa"></div>3 Hours<br>'+
+            '<div style="background-color: #00ffff"></div>4 Hours<br>' +
+            '<div style="background-color: #00aaff"></div>5 Hours<br>' +
+            '<div style="background-color: #0080ff"></div>6 Hours<br>' +
+            '<div style="background-color: #0055ff"></div>7 Hours<br>'+
+            '<div style="background-color: #0000ff"></div>8 Hours<br>'
+          
 
 
             return div;
@@ -803,9 +623,9 @@ function createLegend(){
         }
         else if(fieldtomap == 'Operator Below Required'){
             div.innerHTML =
-            '<b>Operator Below Required</b><br>'+
-            '<div style="background-color: #FA0F36"></div>Yes<br>' +
-            '<div style="background-color: #ABB4C4"></div>No<br>' 
+            '<b>Does My System Operator Meet Requirements?</b><br>'+
+            '<div style="background-color: #FA0F36"></div>No<br>' +
+            '<div style="background-color: #ABB4C4"></div>Yes<br>' 
             
 
 
@@ -817,9 +637,9 @@ function createLegend(){
         }
         else if(fieldtomap == 'No operator'){
             div.innerHTML =
-            '<b>Does my water system have an operator</b><br>'+
-            '<div style="background-color: #FA0F36"></div>Yes<br>' +
-            '<div style="background-color: #ABB4C4"></div>No<br>' 
+            '<b>Does My Water System Have An Operator?</b><br>'+
+            '<div style="background-color: #FA0F36"></div>No<br>' +
+            '<div style="background-color: #ABB4C4"></div>Yes<br>' 
             
 
 
@@ -831,12 +651,13 @@ function createLegend(){
         }
         else if(fieldtomap == 'RiskCode_FiveMCL'){
             div.innerHTML =
-            '<b>Number of Water Violations</b><br>'+
-            '<div style="background-color: #e31a1c"></div>No Violations<br>' +
+            '<b>Number of Water System Violations</b><br>'+
+            '<div style="background-color: #CECFC7"></div>No Data <br>' +
+            '<div style="background-color: #B4DCE4"></div>No Violations<br>' +
             '<div style="background-color: #1f78b4"></div>1<br>' +
-            '<div style="background-color: #EA8C55"></div>2-5<br>' +
-            '<div style="background-color: #b2df8a"></div>5 or More<br>' +
-            '<div style="background-color: #fdbf6f"></div>No Data <br>' 
+            '<div style="background-color: #F96900"></div>2-4<br>' +
+            '<div style="background-color: #E3170A"></div>5 or More<br>' 
+             
             
 
 
@@ -1013,94 +834,128 @@ function createInfoPanel(){
         if(properties){
             this._div.innerHTML =`<br><b> ${properties['Name']}</b>`
             if(fieldtomap == 'GovernanceCode'){
-            this._div.innerHTML =`<b>Governance Information</b>
-            <p style="color:black;font-size:10px;"><br><b>${properties['Name']}</b>
+            this._div.innerHTML =`
+            <p style="color:black;font-size:14px;line-height:1.5em;">
+            <b>Governance Information</b>
+            <br><b>${properties['Name']}</b>
             <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
             <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
             <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
             <br><b>Service Connections</b> ${properties['Service_Co']}
             <br><b>System Population:</b> ${properties['Population']}
+            <br><b>Population by Race:</b>
             <br><div id="apexchart">
             </div></p>
             
             ` 
             }    
         else if(fieldtomap == 'MechanismCode'){
-            this._div.innerHTML = `<b>Governance Information</b>
-            <div><b>${properties['Name']}</b>
-            <br>Link to Water System Website if able
+            this._div.innerHTML = `
+            <p style="color:black;font-size:14px;line-height:1.5em;">
+            <b>Governance Information</b>
+            <br><b>${properties['Name']}</b>
+            <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
             <br><b>Governance Type:</b> ${properties['GovernanceType']}
             <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
             <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
-            <br>Table with appointed members and compensation
-            <br>Participation Info here? 
             <br><b>Service Connections</b> ${properties['Service_Co']}
             <br><b>System Population:</b> ${properties['Population']}
+            <br><b>Population by Race:</b>
             <br><div id="apexchart">
-            <br`}    
+            </div></p>
+            `}    
             else if(fieldtomap == 'Population'){
-                this._div.innerHTML = `<b>Governance Information</b>
-                <div><b>${properties['Name']}</b>
-                <br>Link to Water System Website if able
+                this._div.innerHTML = `
+                <p style="color:black;font-size:14px;line-height:1.5em;">
+                <b>Governance Information</b>
+                <br><b>${properties['Name']}</b>
+                <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
                 <br><b>Governance Type:</b> ${properties['GovernanceType']}
                 <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
                 <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
-                <br>Table with appointed members and compensation
-                <br>Participation Info here? 
                 <br><b>Service Connections</b> ${properties['Service_Co']}
                 <br><b>System Population:</b> ${properties['Population']}
+                <br><b>Population by Race:</b>
                 <br><div id="apexchart">
-                <br`}    
+                </div></p>
+                
+                ` }    
 
        else if(fieldtomap == 'Service_Co'){
-                this._div.innerHTML = `<b>Governance Information</b>
-                                        <div><b>${properties['Name']}</b>
-                                        <br>Link to Water System Website if able
-                                        <br><b>Governance Type:</b> ${properties['GovernanceType']}
-                                        <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
-                                        <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
-                                        <br>Table with appointed members and compensation
-                                        <br>Participation Info here? 
-                                        <br><b>Service Connections</b> ${properties['Service_Co']}
-                                        <br><b>System Population:</b> ${properties['Population']}
-                                        <br><div id="apexchart">
-                                        <br`}    
+                this._div.innerHTML = `
+                <p style="color:black;font-size:14px;line-height:1.5em;">
+                <b>Governance Information</b>
+                <br><b>${properties['Name']}</b>
+                <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
+                <br><b>Governance Type:</b> ${properties['GovernanceType']}
+                <br><b>How is Leadership Chosen?:</b> ${properties['Mechanism']}
+                <br><b>Next Election Year:</b> ${properties['UpcomingElectionYear']}
+                <br><b>Service Connections</b> ${properties['Service_Co']}
+                <br><b>System Population:</b> ${properties['Population']}
+                <br><b>Population by Race:</b>
+                <br><div id="apexchart">
+                </div></p>
+                
+                ` }    
         else if(fieldtomap == 'WaterBill'){
-                this._div.innerHTML = `<b>Water Bill Information</b>
-                                    <p style="color:black;font-size:12px;"><br><b>${properties['Name']}</b>
-                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>
-                                    <p style="color:black;font-size:10px; text-align:left;"><br><b>Average Water Bill:</b> $${properties['WaterBill']}
-                                    <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in LA County.
-                                    <br>It takes working <b>${properties['HMW']} hours at minimum wage</b> to pay my water bill.
-                                    </p> `}     
+                this._div.innerHTML = 
+                `<p style="color:black;font-size:14px;line-height:1.5em;"><b>Water Bill Information</b>
+                <br><b>${properties['Name']}</b>
+                <br><b>Average Water Bill:</b> $${properties['WaterBill']}
+                <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in
+                <br> Los Angeles County.
+                <br>It takes <b>${properties['HMW']} hours of minimum wage</b>
+                <br> to pay my water bill.
+                </p> 
+                <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p> `}     
         else if(fieldtomap == 'HMW'){
-                 this._div.innerHTML =`<b>Water Bill Information</b>
-                                    <p style="color:black;font-size:12px;"><br><b>${properties['Name']}</b>
-                                    <br><b>Average Water Bill:</b> $${properties['WaterBill']}
-                                    <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in LA County.
-                                    <br>It takes <b>${properties['HMW']} hours of minimum wage</b> to pay my water bill.
-                                    </p> 
-                                    <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>`}  
-        else if(fieldtomap == 'NewSpanMerge_RIskScore'){
-                this._div.innerHTML =`<b>System Performance</b>
-                                    <div><b>${properties['Name']}</b>
-                                    <b>Water System Operators</b>
-                                    <br>Water System Operators are trained and certified to monitor system and treatment operations.  
-                                    <br>Required System Operator Level: ${properties['NewSpanMerge_ReqOp']}
-                                    <br>Current System Operator Level: ${properties['NewSpanMerge_HighestOp']}
-                                    <b>Water System Violations</b>
-                                    <br>Between 2014-2018 this system had ${properties['NewSpanMerge_FiveMCL']} health violations
-                                    <b>Risk Score</b>
+                 this._div.innerHTML =
+                 `<p style="color:black;font-size:14px;line-height:1.5em;"><b>Water Bill Information</b>
+                <br><b>${properties['Name']}</b>
+                <br><b>Average Water Bill:</b> $${properties['WaterBill']}
+                <br>My water bill is <b>${properties['RiskCode_Percent']}% ${properties['OU']}</b> the average bill in
+                <br> Los Angeles County.
+                <br>It takes <b>${properties['HMW']} hours of minimum wage</b>
+                <br> to pay my water bill.
+                </p> 
+                <p style="color:black;font-size:10px;">Average water bill is calculated assuming average household consumption of 6 CCF which reflects both water conservation goals and meets California's Human Right to Water goal.</p>`}  
+        else if(fieldtomap == 'RiskCode_RiskCode'){
+                this._div.innerHTML =
+                `<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                <br><b>${properties['Name']}</b>
+                <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
+                <br><b>Risk Assessment</b>
+                <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
+                <br><b>Risk Score:</b> ${properties['RiskCode_SpanRiskScore']}
+                <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
+                <br><b>Water System Operators</b>
+                <br>Water System Operators are trained and certified to monitor system and treatment operations.  
+                <br><b>Required System Operator Level:</b> ${properties['NewSpanMerge_ReqOp']}
+                <br><b>Current System Operator Level:</b> ${properties['NewSpanMerge_HighestOp']}
+                <br>This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
+                    
+                </p>`}  
+        else if(fieldtomap == 'RiskCode_FiveMCL'){
+                this._div.innerHTML =
+                                    `<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                                    <br><b>${properties['Name']}</b>
+                                    <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
+                                    <br><b>Risk Assessment</b>
                                     <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
-                                    <br>Risk Score: ${properties['NewSpanMerge_RIskScore']}
+                                    <br><b>Risk Score:</b> ${properties['RiskCode_SpanRiskScore']}
                                     <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
-                                    <br>DO we want to add NA or LA NA Risk scores here?
-                                    <br>Perhaps adding an MCL variable to the map (button and here)
-                                    <br`}  
+                                    <br><b>Water System Operators</b>
+                                    <br>Water System Operators are trained and certified to monitor system and treatment operations.  
+                                    <br><b>Required System Operator Level:</b> ${properties['NewSpanMerge_ReqOp']}
+                                    <br><b>Current System Operator Level:</b> ${properties['NewSpanMerge_HighestOp']}
+                                    <br>This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
+                                        
+                                    </p>`}   
         else if(fieldtomap == 'Operator Below Required'){
-                this._div.innerHTML =`<b>System Performance</b>
-                <p style="color:black;font-size:12px;line-height:1em;"><b>${properties['Name']}</b>
+                this._div.innerHTML =
+                `<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                <br><b>${properties['Name']}</b>
                 <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
                 <br><b>Risk Assessment</b>
                 <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
@@ -1113,17 +968,21 @@ function createInfoPanel(){
                 <br>This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
                 
                 </p>`}   
-        else if(fieldtomap == 'No Operator'){
-                this._div.innerHTML =`<b>System Performance</b>
-                                            <br>Describe system performance here
-                                            <div><b>${properties['Name']}</b>
-                                            <br>link to CCR report? 
-                                            <br>Required System Operator Level 
-                                            <br>Does my system have an operator?
-                                            <br>Does my system have the required operator level? 
-                                            <br>DO we want to add NA or LA NA Risk scores here?
-                                            <br>Perhaps adding an MCL variable to the map (button and here)
-                                            <br`}  
+        else if(fieldtomap == 'No operator'){
+                this._div.innerHTML =`<p style="color:black;font-size:14px;line-height:1em;"><b>System Performance</b>
+                <br><b>${properties['Name']}</b>
+                <br><a href="https://innovation.luskin.ucla.edu/" target="_blank">Full Water System Data</a>
+                <br><b>Risk Assessment</b>
+                <br>The LA County Risk Assessment anaylzed water systems with 3300 or fewer service connections to detect their risk of failure.
+                <br><b>Risk Score:</b> ${properties['RiskCode_SpanRiskScore']}
+                <br><a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Read the LA County Risk Assessment Here</a>
+                <br><b>Water System Operators</b>
+                <br>Water System Operators are trained and certified to monitor system and treatment operations.  
+                <br><b>Required System Operator Level:</b> ${properties['NewSpanMerge_ReqOp']}
+                <br><b>Current System Operator Level:</b> ${properties['NewSpanMerge_HighestOp']}
+                <br>This system had <b> ${properties['NewSpanMerge_FiveMCL']} health violations </b> from 2014-2018.
+                
+                </p>`}  
 //Spanish Info Box Code Here 
                                             if(fieldtomap == 'SpanGovernanceCode'){
                                                 this._div.innerHTML =`<br><b>Governance Information</b>
@@ -1456,12 +1315,10 @@ console.log(data)
            width: '100%',  
            animations: {
                enabled: true,
-           },
-
-           
+           }, 
        },
-       title: {  },
-       colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#39539E','#0077B5','#0077B5'],
+       title: {},
+       colors: ['#FF9538', '#FFE354', '#EA73B8', '#A246A2', '#433178','#CC2936','#08415C'],
        series: data,
        labels: fields,
        legend: {

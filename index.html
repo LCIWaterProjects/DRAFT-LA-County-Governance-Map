@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>LA County Water Systems</title>
+		<title>Los Angeles County Water Systems</title>
 		<meta charset="utf-8" />
 
 		<!-- style sheets -->
@@ -42,8 +42,11 @@
 <body>
 
 	<div class="header">
-		LA County Water System Governance     |      
-		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="300px">
+		Los Angeles County Water System Governance |   
+		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">About</a> |
+		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Map Data</a> |
+		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Resources</a> |
+		
 	</div>
 	<div class="sidebar">
 		<div class = 'sidebar-intro'>
@@ -51,14 +54,13 @@
 		Click a button below to display
 			<br>data on the map. Then learn more
 		<br>about a water system by clicking on
-			<br>the system on the map.
+			the system on the map.
+			<h4>Desplácese hacia abajo para ver la versión en español.</h4>
 		<h3>Finding Your Water System</h3>
 			You can find your water system by 
-			<br>searching for an address by
-			<br>clicking on the magnifying glass 
-			<br>on the map. 
-		
-
+			<br>entering your address in the magnifying glass tool
+			on the map. 
+			
 
 		</div>
 		<div class="sidebar-content">
@@ -69,15 +71,13 @@
 			<br><button onclick='myServeFunction()'>Water System Service Connections</button>
 			<br><b>Water Bill</b>
 			<br><button onclick='myBillFunction()'>Average Water Bill</button>
-			<br><button onclick='MinWageFunction()'>How Many Hours at Minimum Wage Do I Need to Work to Afford my Water Bi</button>
+			<br><button onclick='MinWageFunction()'>Hours of Minimum Wage</button>
 			<br><b>Water System Performance</b>
 			<br><button onclick='RiskFunction()'>Needs Assessment Risk Score</button>
-			<br><button onclick='MCLFunction()'>Number of violations in past 5 years</button>
+			<br><button onclick='MCLFunction()'>Water System Violations</button>
 			<br><button onclick='myOpBelowFunction()'>Operator Below Certification</button>
 			<br><button onclick='myNoOpFunction()'>No Operator</button>
-			 <br>Other performance buttons? 
-			<br>En Español - Translate all below content into spanish
-			<p>Insert brief description on map and data and instructions on how to use the map
+			<br><b>Translate all below content into spanish</b>
 			<p><b>Water System Governance</b>	
 			<br><button onclick='myGovTypeFunctionSpanish()'>Goverance Type</button>
 			<br><button onclick='myMechTypeFunctionSpanish()'>How is Leadership Chosen?</button>
@@ -88,8 +88,7 @@
 			<br><button onclick='MinWageFunction()'>Hours at Minimum Wage</button>
 			<br><b>Water System Performance</b>
 			<br><button onclick='myOpBelowFunction()'>Operator Below Certification</button>
-			<br><button onclick='myNoOpFunction()'>No Operator</button>
-			<br>Other performance buttons? 
+			<br><button onclick='myNoOpFunction()'>No Operator</button> 
 			<br>
 			</div>
 			</div>
@@ -99,10 +98,12 @@
 		</div>
 	</div>
 	<div class="footer">
-		Link here to Data, Partners, Resources, etc
+		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="300px">
 	</div>
 	<script>
-		//alert('Intro to Map and Indigenous Territory Acknowledgement')
+		alert(
+			
+		'Water management and governance in California is a system rooted in the displacement of indigenous people. This system has been shaped by historical legacies of institutional and environmental racism that lead to disproportionate access to safe, clean, and affordable drinking water. The Luskin Center for Innovation at UCLA acknowledges our presence on the traditional, ancestral, and unceded territory of the Gabrielino/Tongva peoples. We recognize that there is no justice without the return of sacred land and water to native peoples. We also acknowledge the critical role water protectors and indigenous organizers  have in shaping the future of water in California. We invite you to visit our Resources page to learn more about indigenous environmental justice work and connect with these groups directly. Our hope is that this tool is useful for all communities to better understand and navigate their local water systems and water system governance in order to advocate for just and equitable access to clean and affordable drinking water. This map is a continuous work in progress. We welcome your feedback on how it can best serve your community and how we can work together to increase accessibility to water data.')
 		//console.log('Indigenous Territory Acknowledgement')
 	</script>
 
