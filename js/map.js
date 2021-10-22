@@ -188,12 +188,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 100000 ? '#1565C0' :
-                    d > 30000  ? '#1E88E5' :
-                    d > 10000 ? '#42A5F5' :
-                    d > 3300 ? '#64B5F6' :
-                    d > 500  ? '#90CAF9':
-                                 '#BBDEFB';
+            return  d > 100000 ? '#4CC9F0' :
+                    d > 30000  ? '#4361EE' :
+                    d > 10000 ? '#4A10D1' :
+                    d > 3300 ? '#850AD6' :
+                    d > 500  ? '#D91CBC':
+                                 '#F83A90';
                               
         }
     }
@@ -554,12 +554,12 @@ function createLegend(){
         else if(fieldtomap == 'Service_Co'){
             div.innerHTML =
             '<b>Water System Service Connections</b><br>'+
-            '<div style="background-color: #BBDEFB"></div>0 - 500<br>'+
-            '<div style="background-color: #90CAF9"></div>501 - 3,300<br>'+
-            '<div style="background-color: #64B5F6"></div>3,301 - 10,000<br>'+
-            '<div style="background-color: #42A5F5"></div>10,001 - 30,000<br>'+
-            '<div style="background-color: #1E88E5"></div>30,001 - 100,000<br>'+
-            '<div style="background-color: #1565C0"></div>Over 100,000<br>'
+            '<div style="background-color: #F83A90"></div>0 - 500<br>'+
+            '<div style="background-color: #D91CBC"></div>501 - 3,300<br>'+
+            '<div style="background-color: #850AD6"></div>3,301 - 10,000<br>'+
+            '<div style="background-color: #4A10D1"></div>10,001 - 30,000<br>'+
+            '<div style="background-color: #4361EE"></div>30,001 - 100,000<br>'+
+            '<div style="background-color: #4CC9F0"></div>Over 100,000<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -716,12 +716,12 @@ function createLegend(){
         else if(fieldtomap == 'SpanService_Co'){
             div.innerHTML =
             '<b>Water System Service Connections</b>'+
-            '<div style="background-color: #412722"></div>0 - 500<br>'+
-            '<div style="background-color: #8da0cb"></div>501 - 3,300<br>'+
-            '<div style="background-color: #8da0cb"></div>3,301 - 10,000<br>'+
-            '<div style="background-color: #8da0cb"></div>10,001 - 30,000<br>'+
-            '<div style="background-color: #8da0cb"></div>30,001 - 100,000 <br>'+
-            '<div style="background-color: #8da0cb"></div>Over 100,000<br>'
+            '<div style="background-color: #F0D6FF"></div>0 - 500<br>'+
+            '<div style="background-color: #DCADFF"></div>501 - 3,300<br>'+
+            '<div style="background-color: #A965E2"></div>3,301 - 10,000<br>'+
+            '<div style="background-color: #8A37D2"></div>10,001 - 30,000<br>'+
+            '<div style="background-color: #5C199F"></div>30,001 - 100,000 <br>'+
+            '<div style="background-color: #34085E"></div>Over 100,000<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -1395,5 +1395,3 @@ function MCLFunction(){
                 mapGeoJSON('RiskCode_FiveMCL',5,'Accent','natural breaks');}
 function SpanMCLFunction(){
                     mapGeoJSON('NewSpanMerge_FiveMCL',5,'Accent','natural breaks');}
-
-    
