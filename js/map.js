@@ -23,6 +23,7 @@ $( document ).ready(function() {
     getGeoJSON();
 });
 
+ 
 // create the map
 function createMap(lat,lon,zl){
     map = L.map('map').setView([lat,lon], zl);
@@ -48,7 +49,10 @@ function createMap(lat,lon,zl){
         });
       
         map.addControl(searchControl);
+        
+   
 }
+
 
 // function to get the geojson data
     $.getJSON(geojsonPath,function(data){
@@ -95,6 +99,7 @@ function mapGeoJSON(field,num_classes,color,scheme){
     
     // turning off fit bounds so that we stay in mainland USA
     // map.fitBounds(geojson_layer.getBounds())
+
 
     // create the legend
     createLegend();
@@ -1356,6 +1361,59 @@ function zoomTo(geoid){
 	map.fitBounds(zoom2poly[0].getBounds())
 }
 
+function createTable(){
+
+	// empty array for our data
+	let datafortable = [];
+
+	// loop through the data and add the properties object to the array
+	geojson_data.features.forEach(function(item){
+		datafortable.push(item.properties)
+	})
+
+	// array to define the fields: each object is a column
+	let fields = [
+		{ name: "Name", type: "text"},
+		{ name: 'pwsid', type: 'number'},
+		{ name: 'Population', type: 'number'},
+		{ name: 'RiskCode_RiskCode', type: 'number'},
+        { name: 'RiskCode_RiskCode', type: 'number'},
+        { name: 'RiskCode_RiskCode', type: 'number'},
+        { name: 'RiskCode_RiskCode', type: 'number'},
+
+        
+	]
+ 
+	// create the table in our footer
+	$(".footertable").jsGrid({
+		width: "98%",
+		height: "300px",
+		
+		editing: true,
+		sorting: true,
+		paging: true,
+		autoload: true,
+ 
+		pageSize: 200,
+		pageButtonCount: 5,
+ 
+		data: datafortable,
+		fields: fields,
+		rowClick: function(args) { 
+            console.log(args)
+            zoomTo(args.item.Name)
+        },
+        });
+        }
+function zoomTo(Name){
+
+let zoom2poly = geojson_layer.getLayers().filter(item => item.feature.properties.Name === Name)
+
+map.fitBounds(zoom2poly[0].getBounds())
+
+}
+
+
 // create buttons function
 function myPopFunction(){
     mapGeoJSON('Population',5,'YlOrRd','quantiles');}
@@ -1395,3 +1453,14 @@ function MCLFunction(){
                 mapGeoJSON('RiskCode_FiveMCL',5,'Accent','natural breaks');}
 function SpanMCLFunction(){
                     mapGeoJSON('NewSpanMerge_FiveMCL',5,'Accent','natural breaks');}
+
+function on() {
+        document.getElementById("overlay").style.display = "block";
+                      }
+                      
+function off() {
+            document.getElementById("overlay").style.display = "none";
+                      }
+
+               
+                                                       

@@ -42,15 +42,21 @@
 <body>
 
 	<div class="header">
-		Los Angeles County Water System Governance |   
+		Los Angeles County Water System Governance Map 
+		
 		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">About</a> |
 		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Map Data</a> |
-		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Resources</a> |
-		
+		<a href="https://innovation.luskin.ucla.edu/wp-content/uploads/2021/07/LA-County-Small-Water-System-Risk-Assessment.pdf" target="_blank">Resources</a> 
+
 	</div>
 	<div class="sidebar">
 		<div class = 'sidebar-intro'>
-			<h3>Water System Data</h3>
+			<div style="padding:0px; text-align: left;">
+		
+				<button onclick="on()">Indigenous Land & Water Acknowledgment</button>
+			  </div>
+			  
+			<h3>How to Use The Map</h3>
 		Click a button below to display
 			<br>data on the map. Then learn more
 		<br>about a water system by clicking on
@@ -64,21 +70,33 @@
 
 		</div>
 		<div class="sidebar-content">
-			<p><b>Water System Governance  </b><b class="img" title="This is a test"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
+			<p><b>Water System Governance</b><b class="img" title=
+				"Governance Types: Governance types are the forms of political authority and structure of governance. The type of governance a water system is structured is important to understand how the water system oversees the distribution, management, and conservation of water.
+				How is Leadership Chosen: Leadership can be chosen through elections or appointments. 
+				Water System Population: Water System Population maps the number of people in a water system.
+				Water System Service Connections: Service connections are how many buildings/houses a water system serves
+				
+				"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
 			<br><button onclick='myGovTypeFunction()'>Governance Types</button>
 			<br><button onclick='myMechTypeFunction()'>How is Leadership Chosen?</button>
 			<br><button onclick='myPopFunction()'>Water System Population</button>
 			<br><button onclick='myServeFunction()'>Water System Service Connections</button>
-			<br><b>Water Bill  </b><b class="img" title="This is a test"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
+			<br><b>Water Bill</b><b class="img" title="Average Water Bill: The average water bill takes the total cost of all water bills in a water system and finds the average cost. Understanding the cost of a water system’s bill in comparison to others across Los Angeles County is important in showing the financial burden, pushing for better water quality, and investment in a water system’s development.
+			Hours of Minimum Wage: Hours of minimum wage calculate the number of hours a person would need to work to pay the average water bill of the water system. 
+			"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
 			<br><button onclick='myBillFunction()'>Average Water Bill</button>
 			<br><button onclick='MinWageFunction()'>Hours of Minimum Wage</button>
-			<br><b>Water System Performance  </b><b class="img" title="This is a test"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
+			<br><b>Water System Performance</b><b class="img" title="Needs Assessment Risk Score: The Needs Assessment Risk Score analyzes water systems that have less than 3,300 service connections. The assessment surveys various indicators in areas such as water quality, accessibility, affordability, and technical, managerial, and financial (TMF) capacity.
+			Water System Violations: Water system violations record the number of Safe Clean Drinking Water act Sregulations a water system violates. The number of violations reflects how well the water system is serving its customers.
+			Operator Below Certification: Operator certifications are important to verifying the operators are trained in operating, maintaining, and providing adequate and safe water to households.
+			No Operator: A water system without an operator places the residents at risk since the maintenance and quality of water may be lower than what is required.
+			"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
 			<br><button onclick='RiskFunction()'>Needs Assessment Risk Score</button>
 			<br><button onclick='MCLFunction()'>Water System Violations</button>
 			<br><button onclick='myOpBelowFunction()'>Operator Below Certification</button>
 			<br><button onclick='myNoOpFunction()'>No Operator</button>
 			<br><b>Translate all below content into spanish</b>
-			<p><b>Water System Governance  </b><b class="img" title="This is a test"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
+			<p><b>Water System Governance</b><b class="img" title="This is a test"><img src="https://www.clipartmax.com/png/middle/95-953735_instagram-icon-no-background-download-information-icon-png.png" width="15px"></b>
 			<br><button onclick='myGovTypeFunctionSpanish()'>Goverance Type</button>
 			<br><button onclick='myMechTypeFunctionSpanish()'>How is Leadership Chosen?</button>
 			<br><button onclick='myPopFunction()'>Population</button>
@@ -96,18 +114,35 @@
 			</div>
 
 	<div class="content">
-		<div id="map">
-		</div>
+		<div id="overlay" onclick="off()">
+			<div id="text">
+				
+				<h3>Indigenous Land and Water Acknowledgment</h3>
+				Water management and governance in California is a system rooted in the displacement of indigenous people. This system has been shaped by historical legacies of institutional and environmental racism that lead to disproportionate access to safe, clean, and affordable drinking water. 
+				<br>
+				<br>The Luskin Center for Innovation at UCLA acknowledges our presence on the traditional, ancestral, and unceded territory of the Gabrielino/Tongva peoples.
+				<br>
+				<br>We recognize that there is no justice without the return of sacred land and water to native peoples. We also acknowledge the critical role water protectors and indigenous organizers  have in shaping the future of water in California. We invite you to visit our Resources page to learn more about indigenous environmental justice work and connect with these groups directly. 
+				<br>
+				<br>Our hope is that this tool is useful for all communities to better understand and navigate their local water systems and water system governance in order to advocate for just and equitable access to clean and affordable drinking water.
+				<br>
+				<br>This map is a continuous work in progress. We welcome your feedback on how it can best serve your community and how we can work together to increase accessibility to water data.
+				<br>
+				<br> Click anywhere to view the map.
+				</div>
+		  </div>
+		<div id="map">	
+	</div>
+	
 	</div>
 	<div class="footer">
+		<h3>Water System Data Table</h3>
+		The table below contains the full data set 
+		Use the column headers to filter the table by variables. 
+		Click on a row to zoom in on a water system on the map.
+		<div class ="footertable"></div>
 		<img src="https://innovation.luskin.ucla.edu/wp-content/uploads/2019/04/White-Luskin-Logo-201804-300x26.png" width="300px">
 	</div>
-	<script>
-		alert(
-			
-		'Water management and governance in California is a system rooted in the displacement of indigenous people. This system has been shaped by historical legacies of institutional and environmental racism that lead to disproportionate access to safe, clean, and affordable drinking water. The Luskin Center for Innovation at UCLA acknowledges our presence on the traditional, ancestral, and unceded territory of the Gabrielino/Tongva peoples. We recognize that there is no justice without the return of sacred land and water to native peoples. We also acknowledge the critical role water protectors and indigenous organizers  have in shaping the future of water in California. We invite you to visit our Resources page to learn more about indigenous environmental justice work and connect with these groups directly. Our hope is that this tool is useful for all communities to better understand and navigate their local water systems and water system governance in order to advocate for just and equitable access to clean and affordable drinking water. This map is a continuous work in progress. We welcome your feedback on how it can best serve your community and how we can work together to increase accessibility to water data.')
-		//console.log('Indigenous Territory Acknowledgement')
-	</script>
 
 	<script src="js/map.js"></script>
 	
