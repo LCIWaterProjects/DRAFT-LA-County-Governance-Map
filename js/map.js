@@ -193,12 +193,12 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 100000 ? '#4CC9F0' :
-                    d > 30000  ? '#4361EE' :
-                    d > 10000 ? '#4A10D1' :
-                    d > 3300 ? '#850AD6' :
-                    d > 500  ? '#D91CBC':
-                                 '#F83A90';
+            return  d > 100000 ? '#330462' :
+                    d > 30000  ? '#584884' :
+                    d > 10000 ? '#6A7AA0' :
+                    d > 3300 ? '#62A7A6' :
+                    d > 500  ? '#8DCEB4':
+                                 '#BFEDCF';
                               
         }
     }
@@ -235,14 +235,14 @@ function getStyle(feature){
 
         function getColor(d) {
 
-            return  d > 7  ? '#0000ff' :
-            d > 6  ? '#0055ff' :
-            d > 5  ? '#0080ff' :
-            d > 4  ? '#00aaff' :
-            d > 3  ? '#00ffff' :
-            d > 2  ? '#00ffaa' :
-            d > 1 ? '#00ff55' :
-            d > 0  ? '#00ff00' :
+            return  d > 7  ? '#003D2D' :
+            d > 6  ? '#00523D' :
+            d > 5  ? '#0B6B46' :
+            d > 4  ? '#16834F' :
+            d > 3  ? '#55A630' :
+            d > 2  ? '#97D91C' :
+            d > 1 ? '#DCF613' :
+            d > 0  ? '#F0FB9D' :
                          '#CECFC7';
         }
     }
@@ -559,12 +559,12 @@ function createLegend(){
         else if(fieldtomap == 'Service_Co'){
             div.innerHTML =
             '<b>Water System Service Connections</b><br>'+
-            '<div style="background-color: #F83A90"></div>0 - 500<br>'+
-            '<div style="background-color: #D91CBC"></div>501 - 3,300<br>'+
-            '<div style="background-color: #850AD6"></div>3,301 - 10,000<br>'+
-            '<div style="background-color: #4A10D1"></div>10,001 - 30,000<br>'+
-            '<div style="background-color: #4361EE"></div>30,001 - 100,000<br>'+
-            '<div style="background-color: #4CC9F0"></div>Over 100,000<br>'
+            '<div style="background-color: #BFEDCF"></div>0 - 500<br>'+
+            '<div style="background-color: #8DCEB4"></div>501 - 3,300<br>'+
+            '<div style="background-color: #62A7A6"></div>3,301 - 10,000<br>'+
+            '<div style="background-color: #6A7AA0"></div>10,001 - 30,000<br>'+
+            '<div style="background-color: #584884"></div>30,001 - 100,000<br>'+
+            '<div style="background-color: #330462"></div>Over 100,000<br>'
 
             return div;
             console.log('mapping mechanism code')
@@ -592,14 +592,14 @@ function createLegend(){
             div.innerHTML =
             '<b>Minimum Wage<br>Hours</b>'+
             '<br><div style="background-color: #CECFC7"></div>No Data<br>'+
-            '<div style="background-color: #00ff00"></div>1 Hour<br>' +
-            '<div style="background-color: #00ff55"></div>2 Hours<br>' +
-            '<div style="background-color: #00ffaa"></div>3 Hours<br>'+
-            '<div style="background-color: #00ffff"></div>4 Hours<br>' +
-            '<div style="background-color: #00aaff"></div>5 Hours<br>' +
-            '<div style="background-color: #0080ff"></div>6 Hours<br>' +
-            '<div style="background-color: #0055ff"></div>7 Hours<br>'+
-            '<div style="background-color: #0000ff"></div>8 Hours<br>'
+            '<div style="background-color: #F0FB9D"></div>1 Hour<br>' +
+            '<div style="background-color: #DCF613"></div>2 Hours<br>' +
+            '<div style="background-color: #97D91C"></div>3 Hours<br>'+
+            '<div style="background-color: #55A630"></div>4 Hours<br>' +
+            '<div style="background-color: #16834F"></div>5 Hours<br>' +
+            '<div style="background-color: #0B6B46"></div>6 Hours<br>' +
+            '<div style="background-color: #00523D"></div>7 Hours<br>'+
+            '<div style="background-color: #003D2D"></div>8 Hours<br>'
           
 
 
@@ -1323,8 +1323,12 @@ console.log(data)
            }, 
        },
        title: {},
-       colors: ['#005687', '#457e9c', '#789dac', '#9bb1b7', '#bdc5c2','#003654','#002535'],
+       colors: ['#003452', '#005687', '#4E8FB4', '#9CC8E0', '#DD7F03','#FCA636','#FDBB63','#FFE985'],
        series: data,
+       stroke: {
+        width: 0,
+        color: '#808080'
+        },
        labels: fields,
        legend: {
         show: false,
